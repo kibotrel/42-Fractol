@@ -1,0 +1,4 @@
+*.o
+*.dSYM
+libft.a
+fractol
