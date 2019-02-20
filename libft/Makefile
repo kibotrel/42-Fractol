@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 14:35:03 by kibotrel          #+#    #+#              #
-#    Updated: 2019/02/20 19:36:52 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/02/20 20:14:42 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,7 @@ SRC			= ft_putchar.c				ft_putchar_fd.c			\
 			  ft_word_count.c			ft_word_length.c		\
 			  													\
 			  ft_str_is_uppercase.c		ft_str_is_lowercase.c	\
+			  ft_strupcase.c			ft_strlowcase.c			\
 			  ft_toupper.c				ft_tolower.c			\
 			  ft_isalpha.c				ft_isdigit.c			\
 			  ft_isalnum.c				ft_isascii.c			\

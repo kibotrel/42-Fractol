@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 14:59:01 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/20 19:46:52 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/20 20:16:29 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,6 +147,8 @@ void				*ft_btree_search_item(t_btree *root, void *dataref,
 void				ft_foreach_if(t_chain *begin_list, void (*f)(void *),
 										void *data_ref, int (*cmp)());
 char				*ft_strrev(char *str);
+char				*ft_strupcase(char *str);
+char				*ft_strlowcase(char *str);
 char				*ft_itoa_base(int value, int base);
 int					ft_isspace(int c);
 int					ft_is_prime(int nb);
