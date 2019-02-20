@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 14:59:01 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/01/23 19:34:53 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/20 19:46:52 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,7 @@ t_chain				*ft_create_elem(void *data);
 t_chain				*ft_list_last(t_chain *begin_list);
 t_chain				*ft_list_at(t_chain *begin_list, unsigned int nbr);
 void				ft_list_reverse(t_chain **begin_list);
+void				ft_print_error(char *desc, int error);
 void				ft_sort_int_tab(int *tab, unsigned int size);
 void				ft_foreach(int *tab, int length, void (*f)(int));
 void				ft_list_push_back(t_chain **begin_list, void *data);
