@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 22:15:45 by kibotrel          #+#    #+#              #
-#    Updated: 2019/02/20 19:01:55 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/02/21 18:35:33 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,15 +16,18 @@ NAME		= fractol
 
 # All the directories needed to know where files should be (Can be changed)
 
-OBJDIR		= objects/
-SRCDIR		= sources/
+OBJDIR		= objs/
+SRCDIR		= srcs/
 LFTDIR		= libft/
 MLXDIR		= /usr/local/lib/
-INCDIR		= ./includes/ ./libft/includes/
+INCDIR		= ./incs/ ./libft/incs/
 
 # Source files (Can be changed)
 
-SRC			= main.c
+SRC			= main.c		\
+			  setup.c		\
+			  hooks.c		\
+			  utils.c		\
 
 LFT			= ./libft/libft.a
 
