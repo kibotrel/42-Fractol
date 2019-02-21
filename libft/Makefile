@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 14:35:03 by kibotrel          #+#    #+#              #
-#    Updated: 2019/02/20 20:14:42 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/02/21 16:51:15 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,9 @@ NAME		= libft.a
 
 # All the directories needed to know where files should be (Can be changed)
 
-OBJDIR		= objects/
-SRCDIR		= sources/
-INCDIR		= ./includes/
+OBJDIR		= objs/
+SRCDIR		= srcs/
+INCDIR		= ./incs/
 
 # Source files (Can be changed)
 
@@ -116,7 +116,6 @@ $(OBJDIR)%.o: $(SRCDIR)%.c
 # Deleting all .o files and then the directory where they were located
 
 clean:
-	@clear
 	@echo "\033[32m***   Deleting all object files from $(NAME)   ...   ***\n\033[0m"
 	@rm -rf $(COBJ)
 
