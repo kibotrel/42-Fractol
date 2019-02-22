@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 19:14:34 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/21 18:36:58 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/22 18:25:53 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 **	Minilibx informations
 */
 
-# define WIDTH 800
+# define WIDTH 1200
 # define TITLE "[Minilibx Project] Fractol 42"
-# define HEIGHT 600
+# define HEIGHT 1200
 
 /*
 **	Available fractals

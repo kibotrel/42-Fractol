@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 22:15:45 by kibotrel          #+#    #+#              #
-#    Updated: 2019/02/21 18:35:33 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/02/22 18:32:40 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,9 @@ SRC			= main.c		\
 			  setup.c		\
 			  hooks.c		\
 			  utils.c		\
+			  selector.c	\
+			  mandelbrot.c	\
+			  image.c
 
 LFT			= ./libft/libft.a
 
