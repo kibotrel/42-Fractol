@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 18:52:30 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/21 19:34:30 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/22 14:10:43 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int			main(int ac, char **av)
 {
 	t_env	*env;
 	int		fractal;
+
 	if (ac == 2)
 	{
 		if (!(fractal = valid_fractal(av[1])))
@@ -50,6 +51,7 @@ int			main(int ac, char **av)
 		else
 		{
 			env = initialize(fractal);
+			draw_fractal(env);
 			hooks(env);
 			mlx_loop(env->mlx->id);
 		}
