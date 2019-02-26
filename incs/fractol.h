@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 19:14:37 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/22 19:22:16 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/26 20:00:24 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ typedef struct	s_env
 {
 	t_mlx		*mlx;
 	t_cam		*cam;
+	int			checks;
 	int			fractal;
+	int			palette[5];
+
 }				t_env;
 
 typedef struct	s_map
@@ -84,9 +87,8 @@ void			hooks(t_env *env);
 **	utils.c
 */
 
-double			pow2(double n);
 double			map(double n, t_map m);
-t_map			fill_params(double start, double end, double min, double max);
+t_map			fill_data(double start, double end, double min, double max);
 void			free_all(t_env *env);
 
 /*
@@ -106,5 +108,20 @@ void			mandelbrot(t_env *env);
 */
 
 void			pixel_to_image(t_env *env, int x, int y, int color);
+
+/*
+**	color.c
+*/
+
+int				color(t_par data, t_env *env);
+
+/*
+**	maths.c
+*/
+
+double			mod(double a, double b);
+double			real_part(double a, double b);
+double			imaginary_part(double a, double b);
+double			ratio(int start, int end, int current);
 
 #endif
