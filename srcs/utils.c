@@ -6,19 +6,13 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 18:33:09 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/22 19:26:10 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/26 17:08:24 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "env.h"
 #include "fractol.h"
-
-
-double	pow2(double n)
-{
-	return (n * n);
-}
 
 void	free_all(t_env *env)
 {
@@ -28,7 +22,7 @@ void	free_all(t_env *env)
 	free(env);
 }
 
-t_map	fill_params(double start, double end, double min, double max)
+t_map	fill_data(double start, double end, double min, double max)
 {
 	t_map	tmp;
 
