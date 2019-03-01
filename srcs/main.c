@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 18:52:30 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/22 14:10:43 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/01 19:27:28 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 static void	print_usage(void)
 {
 	ft_putendl("\n\033[32;1musage: ./fractol fractal_name\033[0;36m");
-	ft_putendl("\n\tAvailable fractals:\n\n\t- \033[0;31;1mNOT HANDLED YET\033[0;36m");
+	ft_putendl("\n\tAvailable fractals:\n\n\t- Mandelbrot\033");
 	ft_putendl("\n\033[0m\033[32;1mError handling:\033[0;36m");
 	ft_putendl("\n\tEach following error code are handled by the program");
 	ft_putendl("\n\t- Invalid fractal (1)\n\t- Failed memory allocation (2)");
@@ -28,9 +28,12 @@ static void	print_usage(void)
 	ft_putendl("\n\t- Move the map along x and y axis (W,A,S,D) \033[0;31;1mNOT HANDLED YET\033[0;36m");
 	ft_putendl("\t- Change colorset (Z,X,C) \033[0;31;1mNOT HANDLED YET\033[0;36m\n\t- Reset view point (R) \033[0;31;1mNOT HANDLED YET\033[0;36m");
 	ft_putendl("\t- Toggle HUD (H) \033[0;31;1mNOT HANDLED YET\033[0;36m");
-	ft_putendl("\t- Close the window and exit the program (ESC) \033[0;31;1mNOT HANDLED YET\033[0;36m");
+	ft_putendl("\t- Close the window and exit the program (ESC) \033[0;1m[NOT HUD YET]\033[0;36m");
+	ft_putendl("\t- Color mode (M) \033[0;1m[NOT HUD YET]\033[0;36m");
 	ft_putendl("\n\t\t\t\t\t\t\033[0m\033[32;1mMade by kibotrel\n\033[0m");
 }
+
+// AFFICHER LISTE DES FRACTALES DANS LE CAS OU FRACTALE INCONNUE OU NON DISPONIBLE
 
 static int	valid_fractal(char *name)
 {
@@ -58,6 +61,5 @@ int			main(int ac, char **av)
 	}
 	else
 		print_usage();
-
 	return (0);
 }
