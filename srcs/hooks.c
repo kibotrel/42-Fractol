@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 18:28:43 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/22 18:39:27 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/01 21:11:16 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,14 @@ static int		read_input(int key, void *env)
 {
 	if (key == ESC)
 		red_cross(env);
+	if (key == M)
+		color_mode(env);
+	if (key == PG_UP || key == PG_DOWN)
+		details(env, key);
 	// if (key == PLUS || key == MINUS)
 	// 	zoom(env, key);
-	// if (key == W || key == A || key == S || key == D)
-	// 	offset(env, key);
+	 if (key == W || key == A || key == S || key == D)
+		offset(env, key);
 	// if (key == Z || key == X || key == C)
 	// 	colorset(env, key);
 	// if (key == H)
