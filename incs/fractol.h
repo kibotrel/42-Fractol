@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 19:14:37 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/26 20:00:24 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/01 21:13:03 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ typedef struct	s_cam
 {
 	int			hud;
 	int			zoom;
-	int			offset_y;
-	int			offset_x;
+	int			color;
+	double			offset_y;
+	double			offset_x;
 }				t_cam;
 
 typedef struct	s_env
@@ -43,7 +44,7 @@ typedef struct	s_env
 	t_cam		*cam;
 	int			checks;
 	int			fractal;
-	int			palette[5];
+	int			palette[16];
 
 }				t_env;
 
@@ -87,9 +88,9 @@ void			hooks(t_env *env);
 **	utils.c
 */
 
-double			map(double n, t_map m);
-t_map			fill_data(double start, double end, double min, double max);
 void			free_all(t_env *env);
+t_map			fill_data(double start, double end, double min, double max);
+double			map(double n, t_map m);
 
 /*
 **	selector.c
@@ -107,6 +108,7 @@ void			mandelbrot(t_env *env);
 **	image.c
 */
 
+void			new_img(t_env *env);
 void			pixel_to_image(t_env *env, int x, int y, int color);
 
 /*
@@ -114,6 +116,7 @@ void			pixel_to_image(t_env *env, int x, int y, int color);
 */
 
 int				color(t_par data, t_env *env);
+void			color_mode(t_env *env);
 
 /*
 **	maths.c
@@ -124,4 +127,10 @@ double			real_part(double a, double b);
 double			imaginary_part(double a, double b);
 double			ratio(int start, int end, int current);
 
+/*
+**	process_input.c
+*/
+
+void			offset(t_env *env, int key);
+void			details(t_env *env, int key);
 #endif
