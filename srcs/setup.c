@@ -6,11 +6,9 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 15:28:26 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/01 21:13:12 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/01 21:27:29 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h> //
 
 #include <stdlib.h>
 #include "libft.h"
@@ -86,11 +84,5 @@ t_env		*initialize(int fractal)
 	init_img(env);
 	init_cam(env);
 	init_env(env, fractal);
-
-	// printf("\nMlx:\n\tid  : %p\n\twin : %p\n\n", env->mlx->id, env->mlx->win);
-	// printf("Image:\n\tid     : %p\n\tbpp    : %d\n\tsize   : %d\n\tendian : %d\n\n", env->mlx->img->id, env->mlx->img->bpp, env->mlx->img->size, env->mlx->img->endian);
-	// printf("Cam:\n\thud      : %d\n\tzoom     : %d\n\toffset_y : %d\n\toffset_x : %d\n\n", env->cam->hud, env->cam->zoom, env->cam->offset_y, env->cam->offset_x);
-	// printf("Env:\n\tfractal : %d\n\n", env->fractal);
-
 	return (env);
 }
