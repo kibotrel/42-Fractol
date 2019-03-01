@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 22:15:45 by kibotrel          #+#    #+#              #
-#    Updated: 2019/02/26 20:02:06 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/03/01 17:27:47 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,15 +24,16 @@ INCDIR		= ./incs/ ./libft/incs/
 
 # Source files (Can be changed)
 
-SRC			= main.c		\
-			  setup.c		\
-			  hooks.c		\
-			  utils.c		\
-			  selector.c	\
-			  mandelbrot.c	\
-			  image.c		\
-			  color.c		\
-			  maths.c
+SRC			= main.c			\
+			  setup.c			\
+			  hooks.c			\
+			  utils.c			\
+			  selector.c		\
+			  mandelbrot.c		\
+			  image.c			\
+			  color.c			\
+			  maths.c			\
+			  process_input.c	\
 
 LFT			= ./libft/libft.a
 
