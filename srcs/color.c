@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 18:05:41 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/26 19:59:09 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/01 18:55:58 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,14 @@ int				color(t_par data, t_env *env)
 	green = light((BLUE >> 8) & 0xFF, (WHITE >> 8) & 0xFF, percent);
 	blue = light(BLUE & 0xFF, WHITE & 0xFF, percent);
 	return ((red << 16) | (green << 8) | blue);
+}
+
+void			color_mode(t_env *env)
+{
+	new_img(env);
+	env->cam->color *= -1;
+	draw_fractal(env);
+}
 
 // void			colorset(t_env *env, int key)
 // {
@@ -40,4 +48,4 @@ int				color(t_par data, t_env *env)
 // 		mars_set(env);
 // 	if (key == C)
 // 		moon_set(env);
-}
+//}
