@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 22:15:45 by kibotrel          #+#    #+#              #
-#    Updated: 2019/03/05 03:43:20 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/03/05 11:21:11 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,7 +83,7 @@ $(OBJDIR)%.o: $(SRCDIR)%.c
 # Compilation rule for function library "libft"
 
 $(LFT):
-	@make -sC $(LFTDIR)
+	@make -sC $(LFTDIR) -j
 
 # Deleting all .o files and then the directory where they were located
 
