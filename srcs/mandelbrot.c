@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 14:18:30 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/01 21:21:15 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/05 08:35:48 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,10 @@ void			mandelbrot(t_env *env)
 				pixel_to_image(env, data.y, data.x, BLACK);
 			else if (env->cam->color == 1)
 				pixel_to_image(env, data.y, data.x, color(data, env));
-			else
+			else if (!env->cam->shift)
 				pixel_to_image(env, data.y, data.x, env->palette[data.n % 16]);
+			else
+				pixel_to_image(env, data.y, data.x, env->palette[data.n % 5]);
 		}
 	}
 }
