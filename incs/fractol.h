@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 19:14:37 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/01 21:13:03 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/05 08:04:07 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 typedef struct	s_img
 {
-	void		*id;
-	char		*data;
 	int			bpp;
 	int			size;
 	int			endian;
+	void		*id;
+	char		*data;
 }				t_img;
 
 typedef struct	s_mlx
@@ -33,18 +33,22 @@ typedef struct	s_cam
 {
 	int			hud;
 	int			zoom;
+	int			shift;
 	int			color;
-	double			offset_y;
-	double			offset_x;
+	double		offset_y;
+	double		offset_x;
 }				t_cam;
 
 typedef struct	s_env
 {
-	t_mlx		*mlx;
-	t_cam		*cam;
 	int			checks;
 	int			fractal;
+	int			base_color;
 	int			palette[16];
+	t_mlx		*mlx;
+	t_cam		*cam;
+	double		julia_y;
+	double		julia_x;
 
 }				t_env;
 
@@ -58,6 +62,7 @@ typedef struct	s_map
 
 typedef struct	s_par
 {
+	int			n;
 	double		y;
 	double		x;
 	double		z_y;
@@ -66,17 +71,12 @@ typedef struct	s_par
 	double		cur_x;
 	double		strt_y;
 	double		strt_x;
-	int			n;
 }				t_par;
 /*
 **	setup.c
 */
 
 t_env			*initialize(int fractal);
-
-/*
-**	selector.c
-*/
 
 /*
 **	hooks.c
@@ -96,6 +96,7 @@ double			map(double n, t_map m);
 **	selector.c
 */
 
+void			color_preset(t_env *env);
 void			draw_fractal(t_env *env);
 
 /*
@@ -117,6 +118,8 @@ void			pixel_to_image(t_env *env, int x, int y, int color);
 
 int				color(t_par data, t_env *env);
 void			color_mode(t_env *env);
+void			colorset(t_env *env, int key);
+void			base_color(t_env *env, int key);
 
 /*
 **	maths.c
@@ -131,6 +134,29 @@ double			ratio(int start, int end, int current);
 **	process_input.c
 */
 
+void			reset(t_env *env);
+void			psycho_effect(t_env *env);
 void			offset(t_env *env, int key);
 void			details(t_env *env, int key);
+
+/*
+**	colorset.c
+*/
+
+void			set1(t_env *env);
+void			set2(t_env *env);
+void			set3(t_env *env);
+
+/*
+**	preset.c
+*/
+
+void			mandelbrot_color(t_env *env);
+
+/*
+**	julia.c
+*/
+
+void			julia(t_env *env);
+
 #endif
