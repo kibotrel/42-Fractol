@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 22:15:45 by kibotrel          #+#    #+#              #
-#    Updated: 2019/03/01 17:27:47 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/03/05 03:43:20 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,9 @@ SRC			= main.c			\
 			  color.c			\
 			  maths.c			\
 			  process_input.c	\
+			  colorset.c		\
+			  preset.c			\
+			  julia.c
 
 LFT			= ./libft/libft.a
 
