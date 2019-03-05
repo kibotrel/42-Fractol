@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 15:28:26 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/01 21:27:29 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/05 08:35:30 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ static void	init_cam(t_env *env)
 	tmp->zoom = 1;
 	tmp->offset_y = 0.0;
 	tmp->offset_x = 0.0;
-	tmp->color = 1;
+	tmp->color = GRADIENT;
+	tmp->shift = DEFAULT;
 	env->cam = tmp;
 }
 
@@ -56,22 +57,10 @@ static void	init_env(t_env *env, int fractal)
 {
 	env->fractal = fractal;
 	env->checks = 50;
-	env->palette[0] = 0x421E0F;
-	env->palette[1] = 0x19071A;
-	env->palette[2] = 0x09012F;
-	env->palette[3] = 0x040449;
-	env->palette[4] = 0x000764;
-	env->palette[5] = 0x0C2C8A;
-	env->palette[6] = 0x1852B1;
-	env->palette[7] = 0x397DD1;
-	env->palette[8] = 0x86B5E5;
-	env->palette[9] = 0xD3ECF8;
-	env->palette[10] = 0xF1E9BF;
-	env->palette[11] = 0xF8C95F;
-	env->palette[12] = 0xFFAA00;
-	env->palette[13] = 0xCC8000;
-	env->palette[14] = 0x995700;
-	env->palette[15] = 0x6A3403;
+	env->base_color = BLACK;
+	env->julia_x = 0.2;
+	env->julia_y = -0.8;
+	color_preset(env);
 }
 
 t_env		*initialize(int fractal)
