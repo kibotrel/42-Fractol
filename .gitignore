@@ -2,3 +2,5 @@
 *.dSYM
 libft.a
 fractol
+a.out
+*wav
