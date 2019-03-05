@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 18:05:41 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/01 18:55:58 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/05 03:56:05 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int				color(t_par data, t_env *env)
 	double	percent;
 
 	percent = ratio(0, env->checks, data.n);
-	red = light((BLUE >> 16) & 0xFF, (WHITE >> 16) & 0xFF, percent);
-	green = light((BLUE >> 8) & 0xFF, (WHITE >> 8) & 0xFF, percent);
-	blue = light(BLUE & 0xFF, WHITE & 0xFF, percent);
+	red = light((env->base_color >> 16) & 0xFF, (WHITE >> 16) & 0xFF, percent);
+	green = light((env->base_color >> 8) & 0xFF, (WHITE >> 8) & 0xFF, percent);
+	blue = light(env->base_color & 0xFF, WHITE & 0xFF, percent);
 	return ((red << 16) | (green << 8) | blue);
 }
 
@@ -39,13 +39,26 @@ void			color_mode(t_env *env)
 	draw_fractal(env);
 }
 
-// void			colorset(t_env *env, int key)
-// {
-// 	env = new_img(env);
-// 	if (key == Z)
-// 		earth_set(env);
-// 	if (key == X)
-// 		mars_set(env);
-// 	if (key == C)
-// 		moon_set(env);
-//}
+void			colorset(t_env *env, int key)
+{
+	new_img(env);
+	if (key == Z)
+		set1(env);
+	if (key == X)
+		set2(env);
+	if (key == C)
+		set3(env);
+	draw_fractal(env);
+}
+
+void			base_color(t_env *env, int key)
+{
+	new_img(env);
+	if (key == V)
+		env->base_color = BLACK;
+	if (key == B)
+		env->base_color = BLUE;
+	if (key == N)
+		env->base_color = RED;
+	draw_fractal(env);
+}
