@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 19:14:37 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/05 08:04:07 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/08 05:14:59 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct	s_cam
 
 typedef struct	s_env
 {
+	int			child;
 	int			checks;
 	int			fractal;
 	int			base_color;
@@ -89,6 +90,7 @@ void			hooks(t_env *env);
 */
 
 void			free_all(t_env *env);
+void			kill_process_id(void);
 t_map			fill_data(double start, double end, double min, double max);
 double			map(double n, t_map m);
 
@@ -146,6 +148,8 @@ void			details(t_env *env, int key);
 void			set1(t_env *env);
 void			set2(t_env *env);
 void			set3(t_env *env);
+void			shift_color(t_env *env);
+void			shift_default(t_env *env);
 
 /*
 **	preset.c
