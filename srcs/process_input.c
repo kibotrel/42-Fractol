@@ -6,13 +6,13 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 22:30:56 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/05 08:03:33 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/08 05:23:16 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
-
+#include <string.h>
 #include "env.h"
 #include "fractol.h"
 
@@ -42,25 +42,20 @@ void	details(t_env *env, int key)
 
 void	psycho_effect(t_env *env)
 {
-	int		i;
-	int		tmp;
-
-	i = -1;
-	new_img(env);
-	tmp = env->palette[0];
-	if (!env->cam->shift)
+	if (!env->child)
+		env->child = fork();
+	if (env->child > 0)
 	{
-		while(++i < 15)
-			env->palette[i] = env->palette[i + 1];
-		env->palette[i] = tmp;
+		new_img(env);
+		if (!env->cam->shift)
+			shift_default(env);
+		else
+			shift_color(env);
+		draw_fractal(env);
 	}
-	else
-	{
-		while(++i < 4)
-			env->palette[i] = env->palette[i + 1];
-		env->palette[i] = tmp;
-	}
-	draw_fractal(env);
+	else if (env->child == 0)
+		while (1)
+			system("afplay -q 1 sound.wav");
 }
 
 void	reset(t_env *env)
