@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 19:14:37 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/08 05:14:59 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/14 05:25:43 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,10 @@ typedef struct	s_mlx
 typedef struct	s_cam
 {
 	int			hud;
-	int			zoom;
 	int			shift;
 	int			color;
+	double		zoom;
+	double		scale;
 	double		offset_y;
 	double		offset_x;
 }				t_cam;
@@ -45,9 +46,16 @@ typedef struct	s_env
 	int			checks;
 	int			fractal;
 	int			base_color;
+	int			zoom_count;
 	int			palette[16];
+	int			toggle_julia;
+	char		*sound_name;
 	t_mlx		*mlx;
 	t_cam		*cam;
+	double		x_max;
+	double		x_min;
+	double		y_max;
+	double		y_min;
 	double		julia_y;
 	double		julia_x;
 
@@ -95,6 +103,12 @@ t_map			fill_data(double start, double end, double min, double max);
 double			map(double n, t_map m);
 
 /*
+**	utils2.c
+*/
+
+int				red_cross(void *env);
+
+/*
 **	selector.c
 */
 
@@ -140,6 +154,7 @@ void			reset(t_env *env);
 void			psycho_effect(t_env *env);
 void			offset(t_env *env, int key);
 void			details(t_env *env, int key);
+void			zoom(int direction, int x, int y, t_env *env);
 
 /*
 **	colorset.c
@@ -155,12 +170,18 @@ void			shift_default(t_env *env);
 **	preset.c
 */
 
-void			mandelbrot_color(t_env *env);
+void			mandelbrot_julia_color(t_env *env);
 
 /*
 **	julia.c
 */
 
 void			julia(t_env *env);
+
+/*
+**	burning_ship.c
+*/
+
+void			burning_ship(t_env *env);
 
 #endif
