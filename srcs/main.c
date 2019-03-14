@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 18:52:30 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/05 08:23:57 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/14 07:00:11 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 static void	print_usage(void)
 {
 	ft_putendl("\n\033[32;1musage: ./fractol fractal_name\033[0;36m");
-	ft_putendl("\n\tAvailable fractals:\n\n\t- Mandelbrot\n\t- Julia");
+	ft_putendl("\n\tAvailable fractals:\n\n\t- Mandelbrot\n\t- Julia\n\t- Burning Ship");
 	ft_putendl("\n\tUse \"./fractol menu\" to display the main menu window \033[0;31;1mNOT HANDLED YET\033[0;36m");
 	ft_putendl("\n\033[0m\033[32;1mError handling:\033[0;36m");
 	ft_putendl("\n\tEach following error code are handled by the program");
@@ -35,8 +35,8 @@ static void	print_usage(void)
 	ft_putendl("\t- Psychadelic mode (P) \033[0;1mNOT HUD YET\033[0;36m");
 	ft_putendl("\n\033[0m\033[32;1mMouse controls:\033[0;36m");
 	ft_putendl("\n\tThe following inputs are handled in the mlx window");
-	ft_putendl("\n\t- Zoom (Scroll, Left click) \033[0;31;1mNOT HANDLED YET\033[0;36m");
-	ft_putendl("\t- Julia set parameters (Cursor position) \033[0;31;1mNOT HANDLED YET\033[0;36m");
+	ft_putendl("\n\t- Zoom (Scroll, Left click) \033[0;1mNOT HUD YET\033[0;36m");
+	ft_putendl("\t- Julia set parameters (Cursor position) \033[0;1mNOT HUD YET\033[0;36m");
 	ft_putendl("\n\t\t\t\t\t\t\033[0m\033[32;1mMade by kibotrel\n\033[0m");
 }
 
@@ -48,6 +48,8 @@ static int	valid_fractal(char *name)
 		return (MANDELBROT);
 	if (!ft_strcmp(ft_strlowcase(name), "julia"))
 		return (JULIA);
+	if (!ft_strcmp(ft_strlowcase(name), "burning_ship"))
+		return (BURNING_SHIP);
 	return (-1);
 }
 
