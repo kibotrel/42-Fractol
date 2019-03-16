@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 18:28:43 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/14 01:58:26 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/16 06:13:57 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,29 @@
 #include "env.h"
 #include "fractol.h"
 
-
-static int		mouse_press(int	button, int x, int y, t_env *env)
+static int		mouse_press(int button, int x, int y, t_env *env)
 {
 	if (button == SCROLL_UP)
 		zoom(ZOOM_IN, x, y, env);
-	if (button == SCROLL_DOWN)
+	else if (button == SCROLL_DOWN)
 		zoom(ZOOM_OUT, x, y, env);
 	return (0);
 }
+
 static int		mouse_move(int x, int y, t_env *env)
 {
-	if (env->fractal == JULIA && env->toggle_julia == 1)
+	if ((env->fractal == JULIA || env->fractal == BURNING_JULIA)
+	 	&& env->toggle_julia == 1)
 	{
 		new_img(env);
-		if (x >= 0 && x < WIDTH / 2 && y >= 0 && y <= HEIGHT)
-			env->julia_x = map(x, fill_data(0, WIDTH / 2 - 1, -1, 0));
-		else if (x > WIDTH / 2 && x <= WIDTH && y >= 0 && y <= HEIGHT)
-			env->julia_x = map(x, fill_data(WIDTH / 2, WIDTH, 0, 1));
-		if (y >= 0 && y < HEIGHT / 2 && x >= 0 && x <= WIDTH)
-			env->julia_y = map(y, fill_data(0, HEIGHT / 2 - 1, -1, 0));
-		else if (y > HEIGHT / 2 && y <= HEIGHT && x >= 0 && x <= WIDTH)
-			env->julia_y = map(y, fill_data(HEIGHT / 2, HEIGHT, 0, 1));
+		if (x >= 0 && x < 400 && y >= 0 && y <= 800)
+			env->julia_x = map(x, fill_data(0, 399, -1, 0));
+		else if (x >= 400 && x <= 800 && y >= 0 && y <= 800)
+			env->julia_x = map(x, fill_data(400, 800, 0, 1));
+		if (y >= 0 && y < 400 && x >= 0 && x <= 800)
+			env->julia_y = map(y, fill_data(0, 399, -1, 0));
+		else if (y >= 400 && y <= 800 && x >= 0 && x <= 800)
+			env->julia_y = map(y, fill_data(400, 800, 0, 1));
 		draw_fractal(env);
 	}
 	return (0);
@@ -63,10 +64,10 @@ static int		key_press(int key, t_env *env)
 		reset(env);
 	else if (key == TILDE)
 		env->toggle_julia *= -1;
-	else if (key == H)
-		env->cam->hud *= -1;
-	// else if (key == J || key == K || key == L)
-	// 	change_sound(env, key);
+	else if (key == J || key == K || key == L)
+		change_sound(env, key);
+	else if (key == NUM_1 || key == NUM_2 || key == NUM_3 || key == NUM_4)
+		change_fractal(env, key);
 	return (0);
 }
 
