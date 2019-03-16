@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 18:52:30 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/14 07:00:11 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/16 06:04:11 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 static void	print_usage(void)
 {
 	ft_putendl("\n\033[32;1musage: ./fractol fractal_name\033[0;36m");
-	ft_putendl("\n\tAvailable fractals:\n\n\t- Mandelbrot\n\t- Julia\n\t- Burning Ship");
+	ft_putendl("\n\tAvailable fractals:\n\n\t- Mandelbrot\n\t- Julia");
+	ft_putendl("\t- Burning Ship");
 	ft_putendl("\n\tUse \"./fractol menu\" to display the main menu window \033[0;31;1mNOT HANDLED YET\033[0;36m");
 	ft_putendl("\n\033[0m\033[32;1mError handling:\033[0;36m");
 	ft_putendl("\n\tEach following error code are handled by the program");
@@ -26,21 +27,20 @@ static void	print_usage(void)
 	ft_putendl("\n\tUse \"echo $?\" to know the last process returned value");
 	ft_putendl("\n\033[0m\033[32;1mKeyboard controls:\033[0;36m");
 	ft_putendl("\n\tThe following inputs are handled in the mlx window");
-	ft_putendl("\n\t- Move the map along x and y axis (W,A,S,D) \033[0;1mNOT HUD YET\033[0;36m");
-	ft_putendl("\t- Area colorset (Z,X,C) \033[0;1mNOT HUD YET\033[0;36m\n\t- Gradient colorset (V,B,N) \033[0;1mNOT HUD YET\033[0;36m");
-	ft_putendl("\t- Color mode switch between gradient and areas (M) \033[0;1mNOT HUD YET\033[0;36m");
-	ft_putendl("\t- Reset view point (R) \033[0;1mNOT HUD YET\033[0;36m");
-	ft_putendl("\t- Toggle HUD (H) \033[0;31;1mNOT HANDLED YET\033[0;36m");
-	ft_putendl("\t- Close the window and exit the program (ESC) \033[0;1mNOT HUD YET\033[0;36m");
-	ft_putendl("\t- Psychadelic mode (P) \033[0;1mNOT HUD YET\033[0;36m");
+	ft_putendl("\n\t- Move the map along x and y axis (W,A,S,D)");
+	ft_putendl("\t- Area colorset (Z,X,C)\n\t- Gradient colorset (V,B,N)");
+	ft_putendl("\t- Color mode switch between gradient and areas (M)");
+	ft_putendl("\t- Reset view point (R)\n\t- Configurate Julia (Tilde)");
+	ft_putendl("\t- Close the window and exit the program (ESC)");
+	ft_putendl("\t- Psychedelic mode (P)\n\t- Change Sound (J,K,L)");
+	ft_putendl("\t- Select fractal (1,2,3)");
+	ft_putendl("\t- Change details amount (Page_Up,Page_Down)");
 	ft_putendl("\n\033[0m\033[32;1mMouse controls:\033[0;36m");
 	ft_putendl("\n\tThe following inputs are handled in the mlx window");
-	ft_putendl("\n\t- Zoom (Scroll, Left click) \033[0;1mNOT HUD YET\033[0;36m");
-	ft_putendl("\t- Julia set parameters (Cursor position) \033[0;1mNOT HUD YET\033[0;36m");
+	ft_putendl("\n\t- Zoom (Scroll)");
+	ft_putendl("\t- Julia set parameters (Cursor position)");
 	ft_putendl("\n\t\t\t\t\t\t\033[0m\033[32;1mMade by kibotrel\n\033[0m");
 }
-
-// AFFICHER LISTE DES FRACTALES DANS LE CAS OU FRACTALE INCONNUE OU NON DISPONIBLE
 
 static int	valid_fractal(char *name)
 {
@@ -50,6 +50,8 @@ static int	valid_fractal(char *name)
 		return (JULIA);
 	if (!ft_strcmp(ft_strlowcase(name), "burning_ship"))
 		return (BURNING_SHIP);
+	if (!ft_strcmp(ft_strlowcase(name), "burning_julia"))
+		return (BURNING_JULIA);
 	return (-1);
 }
 

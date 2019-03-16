@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 19:14:37 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/14 05:25:43 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/16 06:07:01 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,9 @@ typedef struct	s_mlx
 
 typedef struct	s_cam
 {
-	int			hud;
 	int			shift;
 	int			color;
 	double		zoom;
-	double		scale;
 	double		offset_y;
 	double		offset_x;
 }				t_cam;
@@ -81,6 +79,18 @@ typedef struct	s_par
 	double		strt_y;
 	double		strt_x;
 }				t_par;
+
+typedef struct	s_infos
+{
+	char		c[18];
+	char		zoom[64];
+	char		off_x[22];
+	char		off_y[22];
+	char		sound[28];
+	char		checks[24];
+	char		region[33];
+}				t_infos;
+
 /*
 **	setup.c
 */
@@ -107,6 +117,7 @@ double			map(double n, t_map m);
 */
 
 int				red_cross(void *env);
+void			get_fractal_name(void *id, void *win, t_env *env);
 
 /*
 **	selector.c
@@ -114,6 +125,7 @@ int				red_cross(void *env);
 
 void			color_preset(t_env *env);
 void			draw_fractal(t_env *env);
+void			change_fractal(t_env *env, int key);
 
 /*
 **	mandelbrot.c
@@ -157,6 +169,11 @@ void			details(t_env *env, int key);
 void			zoom(int direction, int x, int y, t_env *env);
 
 /*
+**	process_input.c
+*/
+
+void			change_sound(t_env *env, int key);
+/*
 **	colorset.c
 */
 
@@ -184,4 +201,22 @@ void			julia(t_env *env);
 
 void			burning_ship(t_env *env);
 
+/*
+**	hud.c
+*/
+
+void			hud_infos(t_env *env);
+void			hud_background(t_env *env);
+
+/*
+**	infos_color.c
+*/
+
+void			infos_color(t_env *env, void *id, void *win);
+
+/*
+**	burning_julia.c
+*/
+
+void			burning_julia(t_env *env);
 #endif
