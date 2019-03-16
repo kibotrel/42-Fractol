@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 15:28:26 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/14 06:46:53 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/16 06:09:37 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ static void	init_cam(t_env *env)
 
 	if (!(tmp = (t_cam*)malloc(sizeof(t_cam))))
 		ft_print_error(ERR_MALLOC, 2);
-	tmp->hud = 1;
 	tmp->zoom = 1;
 	tmp->offset_y = 0.0;
 	tmp->offset_x = 0.0;
@@ -56,7 +55,7 @@ static void	init_cam(t_env *env)
 static void	init_env(t_env *env, int fractal)
 {
 	env->fractal = fractal;
-	env->checks = 50;
+	env->checks = 25;
 	env->base_color = BLACK;
 	env->julia_x = 0.0;
 	env->julia_y = 0.0;
