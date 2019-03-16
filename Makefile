@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 22:15:45 by kibotrel          #+#    #+#              #
-#    Updated: 2019/03/14 01:24:50 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/03/16 06:09:49 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,15 +25,18 @@ INCDIR		= ./incs/ ./libft/incs/
 # Source files (Can be changed)
 
 SRC			= main.c			setup.c				\
+			  hud.c									\
+													\
+			  infos_colors.c						\
 													\
 			  mandelbrot.c		julia.c				\
-			  burning_ship.c						\
+			  burning_ship.c	burning_julia.c		\
 													\
 			  colorset.c		preset.c			\
 			  color.c			image.c				\
 													\
-			  selector.c		process_input.c		\
-			  hooks.c								\
+			  selector.c		hooks.c				\
+			  process_input.c	process_input2.c	\
 													\
 			  utils.c			utils2.c			\
 			  maths.c
