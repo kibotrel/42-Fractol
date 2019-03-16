@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 14:18:30 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/14 02:34:10 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/16 05:48:23 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,18 @@
 
 static void		px_setup(t_par *data, double y, double x, t_env *env)
 {
+	double	mix;
+	double	miy;
+	double	max;
+	double	may;
+
+	mix = env->x_min + x;
+	miy = env->y_min + y;
+	max = env->x_max + x;
+	may = env->y_max + y;
 	data->n = -1;
-	data->cur_y = map(data->y, fill_data(0, HEIGHT, (env->y_min + y), (env->y_max + y)));
-	data->cur_x = map(data->x, fill_data(0, WIDTH, (env->x_min + x), (env->x_max + x)));
+	data->cur_y = map(data->y, fill_data(0, 800, miy, may));
+	data->cur_x = map(data->x, fill_data(0, 800, mix, max));
 	data->strt_y = data->cur_y;
 	data->strt_x = data->cur_x;
 }
@@ -30,6 +39,7 @@ static void		px_iterate(t_par *data)
 	data->cur_y = data->z_x + data->strt_y;
 	data->cur_x = data->z_y + data->strt_x;
 }
+
 void			mandelbrot(t_env *env)
 {
 	t_par	data;

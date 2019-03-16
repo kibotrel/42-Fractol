@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   burning_ship.c                                     :+:      :+:    :+:   */
+/*   burning_julia.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/11 12:39:20 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/16 05:48:30 by kibotrel         ###   ########.fr       */
+/*   Created: 2019/03/16 06:01:52 by kibotrel          #+#    #+#             */
+/*   Updated: 2019/03/16 06:13:05 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,15 @@ static void		px_setup(t_par *data, double y, double x, t_env *env)
 	data->strt_x = data->cur_x;
 }
 
-static void		px_iterate(t_par *data)
+static void		px_iterate(t_par *data, t_env *env)
 {
 	data->z_x = real_part(data->cur_y, data->cur_x);
 	data->z_y = fabs(imaginary_part(data->cur_y, data->cur_x));
-	data->cur_y = fabs(data->z_x + data->strt_y);
-	data->cur_x = data->z_y + data->strt_x;
+	data->cur_y = fabs(data->z_x + env->julia_y);
+	data->cur_x = data->z_y + env->julia_x;
 }
 
-void			burning_ship(t_env *env)
+void			burning_julia(t_env *env)
 {
 	t_par	data;
 
@@ -54,7 +54,7 @@ void			burning_ship(t_env *env)
 		{
 			px_setup(&data, env->cam->offset_y, env->cam->offset_x, env);
 			while (mod(data.cur_y, data.cur_x) < LIM && ++data.n < env->checks)
-				px_iterate(&data);
+				px_iterate(&data, env);
 			if (data.n == env->checks)
 				pixel_to_image(env, data.y, data.x, BLACK);
 			else if (env->cam->color == 1)
