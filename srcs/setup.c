@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 15:28:26 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/16 06:09:37 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/18 06:00:44 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void	init_cam(t_env *env)
 static void	init_env(t_env *env, int fractal)
 {
 	env->fractal = fractal;
-	env->checks = 25;
+	set_checks(env);
 	env->base_color = BLACK;
 	env->julia_x = 0.0;
 	env->julia_y = 0.0;
