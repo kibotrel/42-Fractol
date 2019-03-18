@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 18:28:43 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/16 06:13:57 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/18 02:19:08 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int		mouse_move(int x, int y, t_env *env)
 			env->julia_y = map(y, fill_data(0, 399, -1, 0));
 		else if (y >= 400 && y <= 800 && x >= 0 && x <= 800)
 			env->julia_y = map(y, fill_data(400, 800, 0, 1));
-		draw_fractal(env);
+		draw_fractal(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 08:48:14 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/16 06:11:11 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/18 02:22:12 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ void	change_sound(t_env *env, int key)
 		env->sound_name = "sound2.wav";
 	else if (key == L)
 		env->sound_name = "sound3.wav";
-	draw_fractal(env);
+	draw_fractal(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
 }
