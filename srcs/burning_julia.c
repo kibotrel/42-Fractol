@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/16 06:01:52 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/16 06:13:05 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/18 07:17:42 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ static void		px_setup(t_par *data, double y, double x, t_env *env)
 	data->n = -1;
 	data->cur_y = map(data->y, fill_data(0, 800, miy, may));
 	data->cur_x = map(data->x, fill_data(0, 800, mix, max));
-	data->strt_y = data->cur_y;
-	data->strt_x = data->cur_x;
 }
 
 static void		px_iterate(t_par *data, t_env *env)
@@ -59,6 +57,8 @@ void			burning_julia(t_env *env)
 				pixel_to_image(env, data.y, data.x, BLACK);
 			else if (env->cam->color == 1)
 				pixel_to_image(env, data.y, data.x, color(data, env));
+			else if (!env->cam->shift)
+				pixel_to_image(env, data.y, data.x, env->palette[data.n % 16]);
 			else
 				pixel_to_image(env, data.y, data.x, env->palette[data.n % 5]);
 		}
