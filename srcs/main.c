@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 18:52:30 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/16 06:04:11 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/18 02:18:12 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	print_usage(void)
 {
 	ft_putendl("\n\033[32;1musage: ./fractol fractal_name\033[0;36m");
 	ft_putendl("\n\tAvailable fractals:\n\n\t- Mandelbrot\n\t- Julia");
-	ft_putendl("\t- Burning Ship");
+	ft_putendl("\t- Burning Ship\n\t- Burning Julia");
 	ft_putendl("\n\tUse \"./fractol menu\" to display the main menu window \033[0;31;1mNOT HANDLED YET\033[0;36m");
 	ft_putendl("\n\033[0m\033[32;1mError handling:\033[0;36m");
 	ft_putendl("\n\tEach following error code are handled by the program");
@@ -48,10 +48,12 @@ static int	valid_fractal(char *name)
 		return (MANDELBROT);
 	if (!ft_strcmp(ft_strlowcase(name), "julia"))
 		return (JULIA);
-	if (!ft_strcmp(ft_strlowcase(name), "burning_ship"))
+	if (!ft_strcmp(ft_strlowcase(name), "burning ship"))
 		return (BURNING_SHIP);
-	if (!ft_strcmp(ft_strlowcase(name), "burning_julia"))
+	if (!ft_strcmp(ft_strlowcase(name), "burning julia"))
 		return (BURNING_JULIA);
+	if (!ft_strcmp(ft_strlowcase(name), "sierpinski"))
+		return (SIERPINSKI);
 	return (-1);
 }
 
@@ -67,7 +69,7 @@ int			main(int ac, char **av)
 		else
 		{
 			env = initialize(fractal);
-			draw_fractal(env);
+			draw_fractal(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
 			hooks(env);
 			mlx_loop(env->mlx->id);
 		}
