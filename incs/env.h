@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 19:14:34 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/16 06:09:08 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/18 02:14:13 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 
 # define JULIA			1
 # define MANDELBROT		0
+# define SIERPINSKI		4
 # define BURNING_SHIP	2
 # define BURNING_JULIA	3
 
@@ -80,7 +81,7 @@
 # define ZOOM_MIN		1
 # define ZOOM_OUT		2
 # define FOREST			3
-# define ZOOM_MAX		1000
+# define ZOOM_MAX		650
 # define RED_ORANGE		2
 # define MAX_LOOPS		9999995
 # define OFFSET_MIN		-2.75
