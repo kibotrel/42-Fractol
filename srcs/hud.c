@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 09:01:34 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/16 06:17:35 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/18 02:14:45 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,13 @@ static void	fill_fields(t_infos *i, t_env *env)
 	max = env->x_max + (float)env->cam->offset_y;
 	may = env->y_max + (float)env->cam->offset_x;
 	sprintf(i->checks, "Iterations    : %d", env->checks);
-	sprintf(i->zoom, "Zoom          : x%.2f", env->cam->zoom);
-	sprintf(i->c, "%+.3f %+.3fi", env->julia_x, env->julia_y);
+	if (env->zoom_count < ZOOM_MAX)
+		sprintf(i->zoom, "Zoom          : x%.2f", env->cam->zoom);
+	sprintf(i->c, "%+.5f %+.5fi", env->julia_x, env->julia_y);
 	sprintf(i->off_x, "Offset X      : %.2f", env->cam->offset_y);
 	sprintf(i->off_y, "Offset Y      : %.2f", env->cam->offset_x);
 	sprintf(i->sound, "Sound name    : %s\n", env->sound_name);
-	sprintf(i->region, "%+.3f %+.3fi to %+.3f %+.3fi", mix, miy, max, may);
+	sprintf(i->region, "%+.5f %+.5fi to %+.5f %+.5fi", mix, miy, max, may);
 }
 
 static void	fractal_infos(void *id, void *win, t_env *env)
@@ -64,7 +65,7 @@ static void	fractal_infos(void *id, void *win, t_env *env)
 	get_fractal_name(env->mlx->id, env->mlx->win, env);
 	mlx_string_put(id, win, 1040, 15, WHITE, "Informations");
 	mlx_string_put(id, win, 955, 100, WHITE, i.checks);
-	if (ft_strlen(i.zoom) < LEN_ZOOM_MAX)
+	if (ft_strlen(i.zoom) < LEN_ZOOM_MAX && env->zoom_count < ZOOM_MAX)
 		mlx_string_put(id, win, 955, 120, WHITE, i.zoom);
 	else
 	{
@@ -76,11 +77,11 @@ static void	fractal_infos(void *id, void *win, t_env *env)
 	infos_color(env, env->mlx->id, env->mlx->win);
 	mlx_string_put(id, win, 955, 220, WHITE, i.sound);
 	mlx_string_put(id, win, 1025, 260, WHITE, "Explored region");
-	mlx_string_put(id, win, 940, 280, WHITE, i.region);
+	mlx_string_put(id, win, 900, 280, WHITE, i.region);
 	if (env->fractal == JULIA || env->fractal == BURNING_JULIA)
 	{
 		mlx_string_put(id, win, 1030, 320, WHITE, "Preset complex");
-		mlx_string_put(id, win, 1030, 340, WHITE, i.c);
+		mlx_string_put(id, win, 1010, 340, WHITE, i.c);
 	}
 }
 
@@ -97,7 +98,7 @@ static void	fractal_controls(void *id, void *win)
 	mlx_string_put(id, win, 835, 640, WHITE, "Config Julia    : Tilde");
 	mlx_string_put(id, win, 1125, 640, WHITE, "Psycho mode     : P");
 	mlx_string_put(id, win, 835, 660, WHITE, "Change sound    : J/K/L");
-	mlx_string_put(id, win, 1125, 660, WHITE, "Select fractal  : 1/2/3");
+	mlx_string_put(id, win, 1125, 660, WHITE, "Select fractal  : 1/2/3/4");
 	mlx_string_put(id, win, 970, 720, WHITE, "Quit : Escape / Windowcross");
 	mlx_string_put(id, win, 1200, 765, WHITE, "Fractol by kibotrel");
 }
