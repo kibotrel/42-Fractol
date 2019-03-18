@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 22:15:45 by kibotrel          #+#    #+#              #
-#    Updated: 2019/03/16 06:09:49 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/03/18 02:36:24 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRC			= main.c			setup.c				\
 													\
 			  mandelbrot.c		julia.c				\
 			  burning_ship.c	burning_julia.c		\
+			  sierpinski.c							\
 													\
 			  colorset.c		preset.c			\
 			  color.c			image.c				\
