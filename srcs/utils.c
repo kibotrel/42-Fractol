@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 18:33:09 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/08 05:21:52 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/16 05:35:29 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@
 #include "env.h"
 #include "fractol.h"
 
-
-char	*get_command(char *command, int id)
+static char	*get_command(char *command, int id)
 {
 	int				i;
 	char			*value;
@@ -39,7 +38,7 @@ char	*get_command(char *command, int id)
 	return (value);
 }
 
-void	kill_process_id(void)
+void		kill_process_id(void)
 {
 	int		fd;
 	char	*line;
@@ -58,7 +57,7 @@ void	kill_process_id(void)
 	system("rm -f test");
 }
 
-void	free_all(t_env *env)
+void		free_all(t_env *env)
 {
 	free(env->mlx->img);
 	free(env->mlx);
@@ -66,7 +65,7 @@ void	free_all(t_env *env)
 	free(env);
 }
 
-t_map	fill_data(double start, double end, double min, double max)
+t_map		fill_data(double start, double end, double min, double max)
 {
 	t_map	tmp;
 
@@ -77,7 +76,7 @@ t_map	fill_data(double start, double end, double min, double max)
 	return (tmp);
 }
 
-double	map(double n, t_map m)
+double		map(double n, t_map m)
 {
 	return ((n - m.in_s) / (m.in_e - m.in_s) * (m.out_e - m.out_s) + m.out_s);
 }
