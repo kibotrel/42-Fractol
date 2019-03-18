@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 22:30:56 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/18 02:21:59 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/18 06:49:53 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,15 @@
 void	offset(t_env *env, int key)
 {
 	new_img(env);
-	if (key == W && env->cam->offset_x < OFFSET_MAX)
+	if (key == W && env->fractal == SIERPINSKI)
+		env->cam->offset_x += 25;
+	else if (key == A && env->fractal == SIERPINSKI)
+		env->cam->offset_y += 25;
+	else if (key == S && env->fractal == SIERPINSKI)
+		env->cam->offset_x -= 25;
+	else if (key == D && env->fractal == SIERPINSKI)
+		env->cam->offset_y -= 25;
+	else if (key == W && env->cam->offset_x < OFFSET_MAX)
 		env->cam->offset_x += OFFSET / env->cam->zoom;
 	else if (key == A && env->cam->offset_y < OFFSET_MAX)
 		env->cam->offset_y += OFFSET / env->cam->zoom;
@@ -35,10 +43,14 @@ void	offset(t_env *env, int key)
 void	details(t_env *env, int key)
 {
 	new_img(env);
-	if (key == PG_UP && env->checks <= MAX_LOOPS)
+	if (key == PG_UP && env->fractal != SIERPINSKI && env->checks <= MAX_LOOPS)
 		env->checks += 5;
-	else if (key == PG_DOWN && env->checks >= 20)
+	else if (key == PG_DOWN && env->fractal != SIERPINSKI && env->checks >= 20)
 		env->checks -= 5;
+	else if (key == PG_UP && env->fractal == SIERPINSKI && env->checks < 14)
+		env->checks++;
+	else if (key == PG_DOWN && env->fractal == SIERPINSKI && env->checks >= 1)
+		env->checks--;
 	draw_fractal(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
 }
 
@@ -69,7 +81,7 @@ void	psycho_effect(t_env *env)
 void	reset(t_env *env)
 {
 	new_img(env);
-	env->checks = 25;
+	set_checks(env);
 	env->cam->offset_y = 0.0;
 	env->cam->offset_x = 0.0;
 	env->y_max = 2;
@@ -93,7 +105,7 @@ void	reset(t_env *env)
 
 #include <stdio.h>
 
-void	zoom(int direction, double x, double y, t_env *env)
+void	zoom_mouse(int direction, double x, double y, t_env *env)
 {
 	if (y >= 0 && y <= 800 && x >= 0 && x <= 800)
 	{
