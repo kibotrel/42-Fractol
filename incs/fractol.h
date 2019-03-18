@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 19:14:37 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/16 06:07:01 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/18 02:24:32 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,13 +82,13 @@ typedef struct	s_par
 
 typedef struct	s_infos
 {
-	char		c[18];
-	char		zoom[64];
-	char		off_x[22];
-	char		off_y[22];
-	char		sound[28];
-	char		checks[24];
-	char		region[33];
+	char		c[32];
+	char		zoom[128];
+	char		off_x[32];
+	char		off_y[32];
+	char		sound[32];
+	char		checks[32];
+	char		region[64];
 }				t_infos;
 
 /*
@@ -117,6 +117,7 @@ double			map(double n, t_map m);
 */
 
 int				red_cross(void *env);
+void			update_bounds(t_env *env);
 void			get_fractal_name(void *id, void *win, t_env *env);
 
 /*
@@ -124,8 +125,8 @@ void			get_fractal_name(void *id, void *win, t_env *env);
 */
 
 void			color_preset(t_env *env);
-void			draw_fractal(t_env *env);
 void			change_fractal(t_env *env, int key);
+void			draw_fractal(t_env *env, void *id, void *win, void *img);
 
 /*
 **	mandelbrot.c
@@ -166,10 +167,10 @@ void			reset(t_env *env);
 void			psycho_effect(t_env *env);
 void			offset(t_env *env, int key);
 void			details(t_env *env, int key);
-void			zoom(int direction, int x, int y, t_env *env);
+void			zoom(int direction, double x, double y, t_env *env);
 
 /*
-**	process_input.c
+**	process_input2.c
 */
 
 void			change_sound(t_env *env, int key);
@@ -219,4 +220,10 @@ void			infos_color(t_env *env, void *id, void *win);
 */
 
 void			burning_julia(t_env *env);
+
+/*
+**	sierpinski.c:
+*/
+
+void			sierpinski(t_env *env);
 #endif
