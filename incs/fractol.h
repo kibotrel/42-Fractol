@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 19:14:37 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/18 02:24:32 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/18 06:26:52 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct	s_env
 	int			zoom_count;
 	int			palette[16];
 	int			toggle_julia;
+	int			current_level;
 	char		*sound_name;
 	t_mlx		*mlx;
 	t_cam		*cam;
@@ -91,6 +92,22 @@ typedef struct	s_infos
 	char		region[64];
 }				t_infos;
 
+typedef struct	s_line
+{
+	int			error;
+	int			offset;
+	int			sign_y;
+	int			sign_x;
+	int			delta_y;
+	int			delta_x;
+}				t_line;
+
+typedef struct	s_pos
+{
+	int			y;
+	int			x;
+}				t_pos;
+
 /*
 **	setup.c
 */
@@ -118,12 +135,14 @@ double			map(double n, t_map m);
 
 int				red_cross(void *env);
 void			update_bounds(t_env *env);
+void			draw_line(t_pos a, t_pos b, t_env *env);
 void			get_fractal_name(void *id, void *win, t_env *env);
 
 /*
 **	selector.c
 */
 
+void			set_checks(t_env *env);
 void			color_preset(t_env *env);
 void			change_fractal(t_env *env, int key);
 void			draw_fractal(t_env *env, void *id, void *win, void *img);
@@ -167,13 +186,15 @@ void			reset(t_env *env);
 void			psycho_effect(t_env *env);
 void			offset(t_env *env, int key);
 void			details(t_env *env, int key);
-void			zoom(int direction, double x, double y, t_env *env);
+void			zoom_mouse(int direction, double x, double y, t_env *env);
 
 /*
 **	process_input2.c
 */
 
 void			change_sound(t_env *env, int key);
+void			keyboard_zoom(t_env *env, int key);
+
 /*
 **	colorset.c
 */

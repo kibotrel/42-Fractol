@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 19:14:34 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/18 02:14:13 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/18 07:06:42 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@
 # define NUM_2			84
 # define NUM_3			85
 # define NUM_4			86
+# define NUM_5			87
 # define MINUS			27
 # define TILDE			50
 # define PG_UP			116
