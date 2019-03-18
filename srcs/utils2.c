@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 01:23:34 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/16 06:13:25 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/18 02:22:28 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,12 @@ void	get_fractal_name(void *mlx, void *win, t_env *env)
 		mlx_string_put(mlx, win, 1040, 65, WHITE, "Burning Ship");
 	else if (env->fractal == BURNING_JULIA)
 		mlx_string_put(mlx, win, 1035, 65, WHITE, "Burning Julia");
+}
+
+void	update_bounds(t_env *env)
+{
+	env->y_min = -2 / env->cam->zoom;
+	env->y_max = env->y_min + (4 / env->cam->zoom);
+	env->x_min = -2 / env->cam->zoom;
+	env->x_max = env->x_min + (4 / env->cam->zoom);
 }
