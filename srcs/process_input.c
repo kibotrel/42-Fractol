@@ -6,10 +6,11 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 22:30:56 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/16 07:09:34 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/18 02:21:59 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
@@ -28,7 +29,7 @@ void	offset(t_env *env, int key)
 		env->cam->offset_x -= OFFSET / env->cam->zoom;
 	else if (key == D && env->cam->offset_y > OFFSET_MIN)
 		env->cam->offset_y -= OFFSET / env->cam->zoom;
-	draw_fractal(env);
+	draw_fractal(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
 }
 
 void	details(t_env *env, int key)
@@ -38,7 +39,7 @@ void	details(t_env *env, int key)
 		env->checks += 5;
 	else if (key == PG_DOWN && env->checks >= 20)
 		env->checks -= 5;
-	draw_fractal(env);
+	draw_fractal(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
 }
 
 void	psycho_effect(t_env *env)
@@ -54,7 +55,7 @@ void	psycho_effect(t_env *env)
 			shift_default(env);
 		else
 			shift_color(env);
-		draw_fractal(env);
+		draw_fractal(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
 	}
 	else if (env->child == 0)
 		while (1)
@@ -77,6 +78,8 @@ void	reset(t_env *env)
 	env->x_min = -2;
 	env->zoom_count = 1;
 	env->cam->zoom = 1;
+	env->julia_x = 0;
+	env->julia_y = 0;
 	if (env->cam->shift == PASTEL)
 		set1(env);
 	else if (env->cam->shift == RED_ORANGE)
@@ -85,63 +88,36 @@ void	reset(t_env *env)
 		set3(env);
 	else
 		color_preset(env);
-	draw_fractal(env);
+	draw_fractal(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
 }
 
 #include <stdio.h>
 
-void	zoom(int direction, int x, int y, t_env *env)
+void	zoom(int direction, double x, double y, t_env *env)
 {
 	if (y >= 0 && y <= 800 && x >= 0 && x <= 800)
 	{
 		new_img(env);
-		if (direction == ZOOM_IN && env->zoom_count < ZOOM_MAX)
+		if (direction == ZOOM_IN)
 		{
-			env->zoom_count++;
-			env->cam->zoom *= 1.1;
+			env->zoom_count ++;
 			if (x > 0 && x < 400)
-			{
-				env->cam->offset_y -= (OFFSET / env->cam->zoom) * (x / 256);
-				if (y > 0 && y < 400)
-					env->cam->offset_x -= (OFFSET / env->cam->zoom) * (y / 256);
-				else if (y > 400 && y < 800)
-					env->cam->offset_x += (OFFSET / env->cam->zoom) * (y / 256);
-			}
+				env->cam->offset_y -= (OFFSET / env->cam->zoom) * ((400 - x) / 64);
 			else if (x >= 400 && x < 800)
-			{
-				env->cam->offset_y += OFFSET / (env->cam->zoom) * (x / 256);
-				if (y >= 0 && y < 400)
-					env->cam->offset_x -= (OFFSET / env->cam->zoom) * (y / 256);
-				else if (y > 400 && y < 800)
-					env->cam->offset_x += (OFFSET / env->cam->zoom) * (y / 256);
-			}
+				env->cam->offset_y += (OFFSET / env->cam->zoom) * ((x - 400) / 64);
+			if (y > 0 && y < 400)
+				env->cam->offset_x -= (OFFSET / env->cam->zoom) * ((400 - y) / 64);
+			else if (y >= 400 && y < 800)
+				env->cam->offset_x += (OFFSET / env->cam->zoom) * ((y - 400) / 64);
+			env->cam->zoom *= 1.1;
 		}
 		else if (direction == ZOOM_OUT && env->zoom_count > 1)
 		{
 			env->zoom_count--;
 			if ((env->cam->zoom /= 1.1) < 1)
 				env->cam->zoom = 1;
-			if (x >= 0 && x < 400)
-			{
-				env->cam->offset_y += (OFFSET / env->cam->zoom) * (x / 256);
-				if (y >= 0 && y < 400)
-					env->cam->offset_x += (OFFSET / env->cam->zoom) * (y / 256);
-				else
-					env->cam->offset_x -= (OFFSET / env->cam->zoom) * (y / 256);
-			}
-			else
-			{
-				env->cam->offset_y -= OFFSET / (env->cam->zoom) * (x / 256);
-				if (y >= 0 && y < 400)
-					env->cam->offset_x += (OFFSET / env->cam->zoom) * (y / 256);
-				else
-					env->cam->offset_x -= (OFFSET / env->cam->zoom) * (y / 256);
-			}
 		}
-		env->y_min = -2 + (4 / 2) - (4 / 2 / env->cam->zoom);
-		env->y_max = env->y_min + (4 / env->cam->zoom);
-		env->x_min = -2 + (4 / 2) - (4 / 2 / env->cam->zoom);
-		env->x_max = env->x_min + (4 / env->cam->zoom);
-		draw_fractal(env);
+		update_bounds(env);
+		draw_fractal(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
 	}
 }
