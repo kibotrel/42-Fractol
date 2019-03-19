@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 18:28:43 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/19 11:12:40 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/19 15:18:38 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "env.h"
 #include "fractol.h"
 
-static int		mouse_press(int button, int x, int y, t_env *env)
+static int	mouse_press(int button, int x, int y, t_env *env)
 {
 	if (button == SCROLL_UP)
 		zoom_mouse(ZOOM_IN, x, y, env);
@@ -25,12 +25,11 @@ static int		mouse_press(int button, int x, int y, t_env *env)
 	return (0);
 }
 
-static int		mouse_move(int x, int y, t_env *env)
+static int	mouse_move(int x, int y, t_env *env)
 {
 	if ((env->fractal == JULIA || env->fractal == BURNING_JULIA)
 	 	&& env->toggle_julia == 1)
 	{
-		new_img(env);
 		if (x >= 0 && x < 400 && y >= 0 && y <= 800)
 			env->julia_x = map(x, fill_data(0, 399, -1, 0));
 		else if (x >= 400 && x <= 800 && y >= 0 && y <= 800)
@@ -44,7 +43,7 @@ static int		mouse_move(int x, int y, t_env *env)
 	return (0);
 }
 
-static int		key_press(int key, t_env *env)
+static int	key_press(int key, t_env *env)
 {
 	if (key == ESC)
 		red_cross(env);
@@ -73,7 +72,7 @@ static int		key_press(int key, t_env *env)
 	return (0);
 }
 
-static int		key_release(int key, t_env *env)
+static int	key_release(int key, t_env *env)
 {
 	if (key == P && env->child > 0)
 	{
@@ -84,7 +83,7 @@ static int		key_release(int key, t_env *env)
 	return (0);
 }
 
-void			hooks(t_env *env)
+void		hooks(t_env *env)
 {
 	mlx_hook(env->mlx->win, 2, 0, key_press, env);
 	mlx_hook(env->mlx->win, 3, 0, key_release, env);

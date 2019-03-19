@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 18:52:30 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/19 12:53:35 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/19 15:18:47 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "env.h"
 #include "fractol.h"
 
-int			main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_env	*env;
 	int		fractal;
@@ -30,6 +30,7 @@ int			main(int ac, char **av)
 		else
 		{
 			env = initialize(fractal);
+			hud_background(env);
 			draw_fractal(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
 			hooks(env);
 			mlx_loop(env->mlx->id);

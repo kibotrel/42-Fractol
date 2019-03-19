@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 02:13:46 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/19 15:13:17 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/19 15:21:27 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "env.h"
 #include "fractol.h"
 
-t_pos	middle(t_pos a, t_pos b)
+static t_pos	middle(t_pos a, t_pos b)
 {
 	t_pos mid;
 
@@ -24,7 +24,7 @@ t_pos	middle(t_pos a, t_pos b)
 	return (mid);
 }
 
-void	recursion(t_pos a, t_pos b, t_pos c, t_env *env, int level)
+static void		recursion(t_pos a, t_pos b, t_pos c, t_env *env, int level)
 {
 	draw_line(a, b, env);
 	draw_line(b, c, env);
@@ -37,7 +37,7 @@ void	recursion(t_pos a, t_pos b, t_pos c, t_env *env, int level)
 	}
 }
 
-void	sierpinski(t_env *env)
+void			sierpinski(t_env *env)
 {
 	t_pos	a;
 	t_pos	b;

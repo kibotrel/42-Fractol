@@ -6,19 +6,19 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 10:45:52 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/18 10:46:00 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/19 15:24:06 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.h"
 #include "fractol.h"
 
-static int		light(int start, int end, double percent)
+static int	light(int start, int end, double percent)
 {
 	return ((int)((1 - percent) * start + percent * end));
 }
 
-int				color(t_par data, t_env *env)
+int			color(t_par data, t_env *env)
 {
 	int		red;
 	int		green;

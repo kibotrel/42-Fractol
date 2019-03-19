@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 18:30:44 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/14 05:08:37 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/19 15:18:07 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	new_img(t_env *env)
 
 void	pixel_to_image(t_env *env, int x, int y, int color)
 {
-	int		i;
+	int	i;
 
 	i = (x * env->mlx->img->bpp / 8) + (y * env->mlx->img->size);
 	if (x > 0 && x < WIDTH && y > 0 && y < HEIGHT)

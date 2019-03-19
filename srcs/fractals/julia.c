@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 03:42:52 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/16 05:46:47 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/19 15:20:42 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "env.h"
 #include "fractol.h"
 
-static void		px_setup(t_par *data, double y, double x, t_env *env)
+static void	px_setup(t_par *data, double y, double x, t_env *env)
 {
 	double	mix;
 	double	miy;
@@ -30,7 +30,7 @@ static void		px_setup(t_par *data, double y, double x, t_env *env)
 	data->cur_x = map(data->x, fill_data(0, 800, mix, max));
 }
 
-static void		px_iterate(t_par *data, t_env *env)
+static void	px_iterate(t_par *data, t_env *env)
 {
 	data->z_x = real_part(data->cur_y, data->cur_x);
 	data->z_y = imaginary_part(data->cur_y, data->cur_x);
@@ -38,7 +38,7 @@ static void		px_iterate(t_par *data, t_env *env)
 	data->cur_x = data->z_y + env->julia_x;
 }
 
-void			julia(t_env *env)
+void		julia(t_env *env)
 {
 	t_par	data;
 

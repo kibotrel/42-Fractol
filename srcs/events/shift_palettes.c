@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 11:10:12 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/18 11:13:04 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/19 15:19:41 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 void	shift_default(t_env *env)
 {
-	int		i;
-	int		tmp;
+	int	i;
+	int	tmp;
 
 	i = -1;
 	tmp = env->palette[0];
@@ -27,8 +27,8 @@ void	shift_default(t_env *env)
 
 void	shift_color(t_env *env)
 {
-	int		i;
-	int		tmp;
+	int	i;
+	int	tmp;
 
 	i = -1;
 	tmp = env->palette[0];
