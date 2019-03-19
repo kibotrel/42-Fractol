@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 19:14:37 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/18 06:26:52 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/19 15:17:19 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ typedef struct	s_infos
 	char		zoom[128];
 	char		off_x[32];
 	char		off_y[32];
-	char		sound[32];
+	char		sound[64];
 	char		checks[32];
 	char		region[64];
 }				t_infos;
@@ -109,142 +109,234 @@ typedef struct	s_pos
 }				t_pos;
 
 /*
-**	setup.c
+** ./usage/usage.c
 */
 
-t_env			*initialize(int fractal);
+void			fractal_list(void);
+void			usage(void);
 
 /*
-**	hooks.c
+** ./core/selector.c
+*/
+
+void			draw_fractal(t_env *env, void *id, void *win, void *img);
+
+/*
+**	./core/hooks.c
 */
 
 void			hooks(t_env *env);
 
 /*
-**	utils.c
+**	./parsing/parsing.c
 */
 
-void			free_all(t_env *env);
-void			kill_process_id(void);
-t_map			fill_data(double start, double end, double min, double max);
-double			map(double n, t_map m);
+int				valid_fractal(char *name);
 
 /*
-**	utils2.c
+**	./setup/setup.c
 */
 
-int				red_cross(void *env);
-void			update_bounds(t_env *env);
-void			draw_line(t_pos a, t_pos b, t_env *env);
-void			get_fractal_name(void *id, void *win, t_env *env);
+t_env			*initialize(int fractal);
 
 /*
-**	selector.c
+**	./setup/color_preset.c
+*/
+
+void			set1(t_env *env);
+void			set2(t_env *env);
+void			set3(t_env *env);
+void			color_preset(t_env *env);
+void			mandelbrot_julia_color(t_env *env);
+
+/*
+**	./setup/set_checks.c
 */
 
 void			set_checks(t_env *env);
-void			color_preset(t_env *env);
-void			change_fractal(t_env *env, int key);
-void			draw_fractal(t_env *env, void *id, void *win, void *img);
 
 /*
-**	mandelbrot.c
+**	./fractals/mandelbrot.c
 */
 
 void			mandelbrot(t_env *env);
 
 /*
-**	image.c
+**	./fractals/julia.c
+*/
+
+void			julia(t_env *env);
+
+/*
+**	./fractals/burning_ship.c
+*/
+
+void			burning_ship(t_env *env);
+
+/*
+**	./fractals/burning_julia.c
+*/
+
+void			burning_julia(t_env *env);
+
+/*
+**	./fractals/sierpinski.c
+*/
+
+void			sierpinski(t_env *env);
+
+/*
+**	./events/change_fractal.c
+*/
+
+void			change_fractal(t_env *env, int key);
+
+/*
+**	./events/change_sound.c
+*/
+
+void			change_sound(t_env *env, int key);
+
+/*
+**	./events/shift_palettes.c
+*/
+
+void			shift_color(t_env *env);
+void			shift_default(t_env *env);
+
+/*
+**	./events/update_colors.c
+*/
+
+void			color_mode(t_env *env);
+void			colorset(t_env *env, int key);
+void			base_color(t_env *env, int key);
+
+/*
+**	./events/offset.c
+*/
+
+void			offset(t_env *env, int key);
+
+/*
+**	./events/details.c
+*/
+
+void			details(t_env *env, int key);
+
+/*
+**	./events/reset.c
+*/
+
+void			reset(t_env *env);
+
+/*
+**	./events/psycho_effect.c
+*/
+
+void			kill_process_id(void);
+void			psycho_effect(t_env *env);
+
+/*
+**	./events/zoom.c
+*/
+
+void			keyboard_zoom(t_env *env, int key);
+void			zoom_mouse(int direction, double x, double y, t_env *env);
+
+/*
+** ./events/quit.c
+*/
+
+int				red_cross(void *env);
+
+/*
+** ./maths/complex.c
+*/
+
+double			mod(double a, double b);
+double			real_part(double a, double b);
+double			imaginary_part(double a, double b);
+
+/*
+**	./maths/normalize.c
+*/
+
+t_map			fill_data(double start, double end, double min, double max);
+double			map(double n, t_map m);
+
+/*
+**	./maths/update_bounds.c
+*/
+
+void			update_bounds(t_env *env);
+
+/*
+**	./maths/ratio.c
+*/
+
+double			ratio(int start, int end, int current);
+
+/*
+**	./utils/draw_line.c
+*/
+
+void			draw_line(t_pos a, t_pos b, t_env *env);
+
+/*
+**	./utils/image.c
 */
 
 void			new_img(t_env *env);
 void			pixel_to_image(t_env *env, int x, int y, int color);
 
 /*
-**	color.c
+**	./utils/color.c
 */
 
 int				color(t_par data, t_env *env);
-void			color_mode(t_env *env);
-void			colorset(t_env *env, int key);
-void			base_color(t_env *env, int key);
 
 /*
-**	maths.c
+**	./utils/clean.c
 */
 
-double			mod(double a, double b);
-double			real_part(double a, double b);
-double			imaginary_part(double a, double b);
-double			ratio(int start, int end, int current);
+void			free_all(t_env *env);
 
 /*
-**	process_input.c
-*/
-
-void			reset(t_env *env);
-void			psycho_effect(t_env *env);
-void			offset(t_env *env, int key);
-void			details(t_env *env, int key);
-void			zoom_mouse(int direction, double x, double y, t_env *env);
-
-/*
-**	process_input2.c
-*/
-
-void			change_sound(t_env *env, int key);
-void			keyboard_zoom(t_env *env, int key);
-
-/*
-**	colorset.c
-*/
-
-void			set1(t_env *env);
-void			set2(t_env *env);
-void			set3(t_env *env);
-void			shift_color(t_env *env);
-void			shift_default(t_env *env);
-
-/*
-**	preset.c
-*/
-
-void			mandelbrot_julia_color(t_env *env);
-
-/*
-**	julia.c
-*/
-
-void			julia(t_env *env);
-
-/*
-**	burning_ship.c
-*/
-
-void			burning_ship(t_env *env);
-
-/*
-**	hud.c
+**	./hud/hud.c
 */
 
 void			hud_infos(t_env *env);
 void			hud_background(t_env *env);
 
 /*
-**	infos_color.c
+**	./hud/infos_colors.c
 */
 
 void			infos_color(t_env *env, void *id, void *win);
 
 /*
-**	burning_julia.c
+**	./hud/infos_controls.c
 */
 
-void			burning_julia(t_env *env);
+void			fractal_controls(void *id, void *win);
 
 /*
-**	sierpinski.c:
+**	./hud/infos_complex.c
 */
 
-void			sierpinski(t_env *env);
+void			infos_complex(t_env *env, void *id, void *win, t_infos i);
+
+/*
+**	./hud/infos_zoom.c
+*/
+
+void			infos_zoom(t_env *env, void *id, void *win, t_infos i);
+
+/*
+**	./hud/fractal_name.c
+*/
+
+void			get_fractal_name(void *mlx, void *win, t_env *env);
+
 #endif
