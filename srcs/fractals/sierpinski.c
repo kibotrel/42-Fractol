@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 02:13:46 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/18 15:22:06 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/19 15:13:17 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,5 @@ void	sierpinski(t_env *env)
 	c.x = a.x + (b.x - a.x) / 2;
 	c.y = a.y - sqrt(pow(b.x - a.x, 2) - pow((b.x - a.x) / 2, 2));
 	recursion(a, b, c, env, env->checks);
+	hud_background(env);
 }
