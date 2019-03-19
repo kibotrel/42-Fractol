@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 22:15:45 by kibotrel          #+#    #+#              #
-#    Updated: 2019/03/18 02:36:24 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/03/18 15:34:31 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ NAME		= fractol
 # All the directories needed to know where files should be (Can be changed)
 
 OBJDIR		= objs/
+OBJSUBDIRS	= usage events fractals hud setup parsing utils maths core
 SRCDIR		= srcs/
 LFTDIR		= libft/
 MLXDIR		= /usr/local/lib/
@@ -24,23 +25,35 @@ INCDIR		= ./incs/ ./libft/incs/
 
 # Source files (Can be changed)
 
-SRC			= main.c			setup.c				\
-			  hud.c									\
-													\
-			  infos_colors.c						\
-													\
-			  mandelbrot.c		julia.c				\
-			  burning_ship.c	burning_julia.c		\
-			  sierpinski.c							\
-													\
-			  colorset.c		preset.c			\
-			  color.c			image.c				\
-													\
-			  selector.c		hooks.c				\
-			  process_input.c	process_input2.c	\
-													\
-			  utils.c			utils2.c			\
-			  maths.c
+SRC			= core/main.c				core/selector.c				\
+			  core/hooks.c											\
+																	\
+			  parsing/parsing.c										\
+																	\
+			  setup/setup.c				setup/color_preset.c		\
+			  setup/set_checks.c									\
+																	\
+			  fractals/mandelbrot.c		fractals/julia.c			\
+			  fractals/burning_ship.c	fractals/burning_julia.c	\
+			  fractals/sierpinski.c									\
+																	\
+			  events/change_fractal.c 	events/change_sound.c		\
+			  events/update_colors.c	events/shift_palettes.c		\
+			  events/offset.c			events/details.c			\
+			  events/reset.c			events/psycho_effect.c		\
+			  events/quit.c				events/zoom.c				\
+																	\
+			  maths/complex.c			maths/normalize.c			\
+			  maths/update_bounds.c		maths/ratio.c				\
+																	\
+			  utils/draw_line.c			utils/image.c				\
+			  utils/color.c				utils/clean.c				\
+																	\
+			  hud/hud.c					hud/infos_colors.c			\
+			  hud/infos_controls.c		hud/infos_complex.c			\
+			  hud/infos_zoom.c			hud/fractal_name.c			\
+																	\
+			  usage/usage.c
 
 LFT			= ./libft/libft.a
 
@@ -50,6 +63,7 @@ TOOLS		= OpenGL AppKit
 
 CSRC		= $(addprefix $(SRCDIR), $(SRC))
 COBJ		= $(addprefix $(OBJDIR), $(OBJ))
+SUBDIRS		= $(foreach dir, $(OBJSUBDIRS), $(OBJDIR)$(dir))
 INCLUDES	= $(foreach include, $(INCDIR), -I$(include))
 FRAMEWORKS	= $(foreach framework, $(TOOLS), -framework $(framework))
 
@@ -68,7 +82,7 @@ YELLOW		= \033[33m
 
 # Check if object directory exists, build libft and then the Project
 
-all: $(NAME)
+all: $(SUBDIRS) $(NAME)
 
 $(NAME): $(LFT) $(OBJDIR) $(COBJ)
 	@echo "$(YELLOW)\n      - Building $(RESET)$(NAME) $(YELLOW)...\n$(RESET)"
@@ -78,6 +92,8 @@ $(NAME): $(LFT) $(OBJDIR) $(COBJ)
 $(OBJDIR):
 	@mkdir -p $(OBJDIR)
 
+$(SUBDIRS):
+	@mkdir -p $(SUBDIRS)
 # Redefinition of implicit compilation rule to prompt some colors and file names during the said compilation
 
 $(OBJDIR)%.o: $(SRCDIR)%.c
