@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 07:58:06 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/19 12:55:00 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/19 15:23:51 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ static void	mouse_controls(void)
 	ft_putendl("\n\tThe following inputs are handled in the mlx window");
 	ft_putendl("\n\t- Zoom (Scroll)");
 	ft_putendl("\t- Julia set parameters (Cursor position)");
+	ft_putendl("\n\t\t\t\t\t\t\033[0m\033[32;1mMade by kibotrel\n\033[0m");
 }
 void		usage(void)
 {
@@ -56,5 +57,4 @@ void		usage(void)
 	error_handling();
 	keyboard_controls();
 	mouse_controls();
-	ft_putendl("\n\t\t\t\t\t\t\033[0m\033[32;1mMade by kibotrel\n\033[0m");
 }
