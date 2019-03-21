@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 19:14:37 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/19 15:17:19 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/21 22:55:54 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -276,6 +276,12 @@ void			update_bounds(t_env *env);
 */
 
 double			ratio(int start, int end, int current);
+
+/*
+**	./maths/functions.c
+*/
+
+int				pow2(int x);
 
 /*
 **	./utils/draw_line.c
