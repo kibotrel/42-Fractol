@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 11:14:45 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/18 11:15:07 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/19 15:12:44 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 void	offset(t_env *env, int key)
 {
-	new_img(env);
+	if (env->fractal == SIERPINSKI)
+		new_img(env);
 	if (key == W && env->fractal == SIERPINSKI)
 		env->cam->offset_x += 25;
 	else if (key == A && env->fractal == SIERPINSKI)

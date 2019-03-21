@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 11:57:29 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/18 11:59:47 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/19 15:14:20 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 void	reset(t_env *env)
 {
-	new_img(env);
+	if (env->fractal == SIERPINSKI)
+		new_img(env);
 	set_checks(env);
 	env->cam->offset_y = 0.0;
 	env->cam->offset_x = 0.0;

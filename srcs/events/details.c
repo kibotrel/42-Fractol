@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 11:17:18 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/18 11:17:30 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/21 21:12:10 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 void	details(t_env *env, int key)
 {
-	new_img(env);
+	if (env->fractal == SIERPINSKI)
+		new_img(env);
 	if (key == PG_UP && env->fractal != SIERPINSKI && env->checks <= MAX_LOOPS)
 		env->checks += 5;
 	else if (key == PG_DOWN && env->fractal != SIERPINSKI && env->checks >= 20)
