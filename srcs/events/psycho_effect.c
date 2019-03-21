@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 12:01:32 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/18 12:09:34 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/21 23:12:57 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "env.h"
 #include "fractol.h"
 
-void		kill_process_id(void)
+void	kill_process_id(void)
 {
 	int		fd;
 	char	*line;
@@ -45,9 +45,10 @@ void	psycho_effect(t_env *env)
 	sprintf(command, "afplay -q 1 %s", env->sound_name);
 	if (!env->child)
 		env->child = fork();
-	if (env->child > 0)
+	if (env->child == -1)
+		ft_print_error(ERR_FORK, 3);
+	else if (env->child > 0)
 	{
-		new_img(env);
 		if (!env->cam->shift)
 			shift_default(env);
 		else
