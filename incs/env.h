@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 19:14:34 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/18 07:06:42 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/21 23:11:33 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,5 +161,6 @@
 
 # define ERR_NAME		"\033[31;1mError:\033[0m Fractal unavailable."
 # define ERR_MALLOC		"\033[31;1mError :\033[0m Can't allocate memory."
+# define ERR_FORK		"\033[31;1mError :\033[0m Can't fork the process."
 
 #endif
