@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 18:28:43 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/19 15:18:38 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/19 15:43:21 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 static int	mouse_press(int button, int x, int y, t_env *env)
 {
-	if (button == SCROLL_UP)
+	if (button == SCROLL_UP && env->fractal != SIERPINSKI)
 		zoom_mouse(ZOOM_IN, x, y, env);
-	else if (button == SCROLL_DOWN)
+	else if (button == SCROLL_DOWN && env->fractal != SIERPINSKI)
 		zoom_mouse(ZOOM_OUT, x, y, env);
 	return (0);
 }
