@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 07:58:06 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/19 15:23:51 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/21 23:12:48 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void	error_handling(void)
 	ft_putendl("\033[0m\033[32;1mError handling:\033[0;36m");
 	ft_putendl("\n\tEach following error code are handled by the program");
 	ft_putendl("\n\t- Invalid fractal (1)\n\t- Failed memory allocation (2)");
+	ft_putendl("\t- Failed to fork the process (3)");
 	ft_putendl("\n\tUse \"echo $?\" to know the last process returned value");
 }
 
