@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 22:15:45 by kibotrel          #+#    #+#              #
-#    Updated: 2019/03/18 15:34:31 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/03/21 22:52:35 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ SRC			= core/main.c				core/selector.c				\
 																	\
 			  maths/complex.c			maths/normalize.c			\
 			  maths/update_bounds.c		maths/ratio.c				\
+			  maths/functions.c										\
 																	\
 			  utils/draw_line.c			utils/image.c				\
 			  utils/color.c				utils/clean.c				\
