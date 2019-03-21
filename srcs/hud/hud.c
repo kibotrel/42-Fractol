@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 09:01:34 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/18 14:53:13 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/21 23:08:42 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ static void	fill_fields(t_infos *i, t_env *env)
 	sprintf(i->c, "%+.5f %+.5fi", env->julia_x, env->julia_y);
 	sprintf(i->off_x, "Offset X      : %.2f", env->cam->offset_y);
 	sprintf(i->off_y, "Offset Y      : %.2f", env->cam->offset_x);
-	sprintf(i->sound, "Sound name    : %s\n", env->sound_name);
+	if (env->fractal != SIERPINSKI)
+		sprintf(i->sound, "Sound name    : %s\n", env->sound_name);
 	sprintf(i->region, "%+.5f %+.5fi to %+.5f %+.5fi", mix, miy, max, may);
 }
 
@@ -69,7 +70,8 @@ static void	fractal_infos(void *id, void *win, t_env *env)
 	mlx_string_put(id, win, 955, 140, WHITE, i.off_x);
 	mlx_string_put(id, win, 955, 160, WHITE, i.off_y);
 	infos_color(env, env->mlx->id, env->mlx->win);
-	mlx_string_put(id, win, 955, 220, WHITE, i.sound);
+	if (env->fractal != SIERPINSKI)
+		mlx_string_put(id, win, 955, 220, WHITE, i.sound);
 	infos_complex(env, env->mlx->id, env->mlx->win, i);
 }
 
