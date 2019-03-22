@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 01:20:06 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/22 05:31:26 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/22 05:55:11 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,6 @@ void	depth(t_pos p[2], double a, t_env *env, int lvl)
 		depth((t_pos[2]){t[0], t[2]}, a, env, lvl - 1);
 		depth((t_pos[2]){t[2], t[1]}, a, env, lvl - 1);
 		depth((t_pos[2]){t[1], p[1]}, a, env, lvl - 1);
-		// depth((t_pos[2]){p[0], t[2]}, a, env, lvl - 1);
-		// depth((t_pos[2]){t[2], p[1]}, a, env, lvl - 1);
-		// depth((t_pos[2]){t[0], t[1]}, a, env, lvl - 1);
-		// depth((t_pos[2]){p[0], p[1]}, a, env, lvl - 1);
 	}
 
 }
