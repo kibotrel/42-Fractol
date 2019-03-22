@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 03:42:52 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/19 15:20:42 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/22 06:07:42 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ void		julia(t_env *env)
 	t_par	data;
 
 	data.y = -1;
-	while (++data.y < HEIGHT)
+	while (++data.y < 800)
 	{
 		data.x = -1;
-		while (++data.x < WIDTH)
+		while (++data.x < 800)
 		{
 			px_setup(&data, env->cam->offset_y, env->cam->offset_x, env);
 			while (mod(data.cur_y, data.cur_x) < LIM && ++data.n < env->checks)
