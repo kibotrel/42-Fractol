@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 15:28:26 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/19 13:22:01 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/22 01:50:43 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void	init_env(t_env *env, int fractal)
 {
 	env->fractal = fractal;
 	set_checks(env);
-	env->base_color = BLACK;
+	set_base_color(env);
 	env->julia_x = 0.0;
 	env->julia_y = 0.0;
 	env->child = 0;
