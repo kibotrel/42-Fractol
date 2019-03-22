@@ -6,42 +6,13 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 01:54:14 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/18 09:23:48 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/22 01:57:38 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.h"
 #include "fractol.h"
 
-void	set1(t_env *env)
-{
-	env->cam->shift = PASTEL;
-	env->palette[0] = PASTEL_0;
-	env->palette[1] = PASTEL_1;
-	env->palette[2] = PASTEL_2;
-	env->palette[3] = PASTEL_3;
-	env->palette[4] = PASTEL_4;
-}
-
-void	set2(t_env *env)
-{
-	env->cam->shift = RED_ORANGE;
-	env->palette[0] = RED_ORANGE_0;
-	env->palette[1] = RED_ORANGE_1;
-	env->palette[2] = RED_ORANGE_2;
-	env->palette[3] = RED_ORANGE_3;
-	env->palette[4] = RED_ORANGE_4;
-}
-
-void	set3(t_env *env)
-{
-	env->cam->shift = FOREST;
-	env->palette[0] = FOREST_0;
-	env->palette[1] = FOREST_1;
-	env->palette[2] = FOREST_2;
-	env->palette[3] = FOREST_3;
-	env->palette[4] = FOREST_4;
-}
 
 void	color_preset(t_env *env)
 {
@@ -49,6 +20,14 @@ void	color_preset(t_env *env)
 		|| env->fractal == JULIA
 		|| env->fractal == BURNING_JULIA)
 		mandelbrot_julia_color(env);
+}
+
+void	set_base_color(t_env *env)
+{
+	if (env->fractal == SIERPINSKI || env->fractal == KOCH)
+		env->base_color = WHITE;
+	else
+		env->base_color = BLACK;
 }
 
 void	mandelbrot_julia_color(t_env *env)
