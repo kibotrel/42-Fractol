@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 09:38:12 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/18 11:56:08 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/22 01:46:21 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void			draw_line(t_pos a, t_pos b, t_env *env)
 	p = a;
 	while (p.y != b.y || p.x != b.x)
 	{
-		pixel_to_image(env, p.x, p.y, WHITE);
+		pixel_to_image(env, p.x, p.y, env->base_color);
 		if ((params.error = params.offset * 2) > -params.delta_y)
 		{
 			params.offset -= params.delta_y;
@@ -48,5 +48,5 @@ void			draw_line(t_pos a, t_pos b, t_env *env)
 			p.y += params.sign_y;
 		}
 	}
-	pixel_to_image(env, p.x, p.y, WHITE);
+	pixel_to_image(env, p.x, p.y, env->base_color);
 }
