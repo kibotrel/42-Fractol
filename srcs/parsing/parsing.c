@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 08:27:55 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/18 08:44:13 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/22 01:24:52 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ int	valid_fractal(char *name)
 		return (BURNING_JULIA);
 	if (!ft_strcmp(ft_strlowcase(name), "sierpinski"))
 		return (SIERPINSKI);
+	if (!ft_strcmp(ft_strlowcase(name), "koch"))
+		return (KOCH);
 	return (-1);
 }

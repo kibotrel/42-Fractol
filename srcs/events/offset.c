@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 11:14:45 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/19 15:12:44 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/22 01:38:40 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,18 @@
 
 void	offset(t_env *env, int key)
 {
-	if (env->fractal == SIERPINSKI)
+	if (env->fractal == SIERPINSKI || env->fractal == KOCH)
+	{
 		new_img(env);
-	if (key == W && env->fractal == SIERPINSKI)
-		env->cam->offset_x += 25;
-	else if (key == A && env->fractal == SIERPINSKI)
-		env->cam->offset_y += 25;
-	else if (key == S && env->fractal == SIERPINSKI)
-		env->cam->offset_x -= 25;
-	else if (key == D && env->fractal == SIERPINSKI)
-		env->cam->offset_y -= 25;
+		if (key == W)
+			env->cam->offset_x += 25;
+		else if (key == A)
+			env->cam->offset_y += 25;
+		else if (key == S)
+			env->cam->offset_x -= 25;
+		else if (key == D)
+			env->cam->offset_y -= 25;
+	}
 	else if (key == W && env->cam->offset_x < OFFSET_MAX)
 		env->cam->offset_x += OFFSET / env->cam->zoom;
 	else if (key == A && env->cam->offset_y < OFFSET_MAX)

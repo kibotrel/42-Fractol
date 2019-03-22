@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 12:12:22 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/19 16:00:20 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/22 01:32:12 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	zoom_mouse(int direction, double x, double y, t_env *env)
 {
 	if (y >= 0 && y <= 800 && x >= 0 && x <= 800)
 	{
-		if (env->fractal == SIERPINSKI)
-			new_img(env);
 		if (direction == ZOOM_IN)
 		{
 			env->zoom_count ++;
@@ -45,7 +43,7 @@ void	zoom_mouse(int direction, double x, double y, t_env *env)
 
 void	keyboard_zoom(t_env *env, int key)
 {
-	if (env->fractal == SIERPINSKI)
+	if (env->fractal == SIERPINSKI || env->fractal == KOCH)
 		new_img(env);
 	if (key == PLUS)
 	{
