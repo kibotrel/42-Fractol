@@ -6,13 +6,12 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 01:54:14 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/26 13:56:47 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/26 16:16:30 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.h"
 #include "fractol.h"
-
 
 void	color_preset(t_env *env)
 {
@@ -27,7 +26,7 @@ void	set_base_color(t_env *env)
 	if (env->fractal == SIERPINSKI || env->fractal == KOCH)
 		env->base_color = WHITE;
 	else if (env->fractal == BARNSLEY)
-		env->base_color = GREEN;	
+		env->base_color = GREEN;
 	else
 		env->base_color = BLACK;
 }

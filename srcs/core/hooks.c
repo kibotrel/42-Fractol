@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 18:28:43 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/26 14:14:08 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/26 15:33:22 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	key_press(int key, t_env *env)
 {
 	if (key == ESC)
 		red_cross(env);
-	else if (key == M && env->fractal != SIERPINSKI && env->fractal != KOCH  && env->fractal != BARNSLEY)
+	else if (key == M && env->fractal != SIERPINSKI && env->fractal != KOCH && env->fractal != BARNSLEY)
 		color_mode(env);
 	else if (key == PG_UP || key == PG_DOWN)
 		details(env, key);

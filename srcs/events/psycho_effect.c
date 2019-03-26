@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 12:01:32 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/21 23:12:57 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/26 16:14:30 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	kill_process_id(void)
 void	psycho_effect(t_env *env)
 {
 	char	command[64];
-
 
 	sprintf(command, "afplay -q 1 %s", env->sound_name);
 	if (!env->child)
