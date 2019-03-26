@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_checks.c                                       :+:      :+:    :+:   */
+/*   set_bounds.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/18 09:15:09 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/26 08:11:52 by kibotrel         ###   ########.fr       */
+/*   Created: 2019/03/26 08:42:14 by kibotrel          #+#    #+#             */
+/*   Updated: 2019/03/26 08:46:06 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.h"
 #include "fractol.h"
 
-void	set_checks(t_env *env)
+void	set_bounds(t_env *env)
 {
-	if (env->fractal == MANDELBROT)
-		env->checks = 15;
-	else if (env->fractal == JULIA || env->fractal == BURNING_JULIA)
-		env->checks = 25;
-	else if (env->fractal == BURNING_SHIP)
-		env->checks = 20;
-	else if (env->fractal == SIERPINSKI || env->fractal == KOCH)
-		env->checks = 0;
-	else if (env->fractal == BARNSLEY)
-		env->checks = 5000;
+	if (env->fractal == BARNSLEY)
+	{
+		env->y_min = 0;
+		env->y_max = 9.9983;
+		env->x_min = -2.1820;
+		env->x_max = 2.6558;
+	}
+	else
+	{
+		env->y_max = 2;
+		env->y_min = -2;
+		env->x_max = 2;
+		env->x_min = -2;
+	}
 }

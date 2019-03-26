@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 11:57:29 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/22 02:03:19 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/26 09:13:32 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@ static void	set_default_value(t_env *env)
 {
 	env->cam->offset_y = 0.0;
 	env->cam->offset_x = 0.0;
-	env->y_max = 2;
-	env->y_min = -2;
-	env->x_max = 2;
-	env->x_min = -2;
+	set_bounds(env);
 	env->zoom_count = 1;
 	env->cam->zoom = 1;
 	env->julia_x = 0;
@@ -29,7 +26,7 @@ static void	set_default_value(t_env *env)
 
 void		reset(t_env *env)
 {
-	if (env->fractal == SIERPINSKI || env->fractal == KOCH)
+	if (env->fractal == SIERPINSKI || env->fractal == KOCH || env->fractal == BARNSLEY)
 		new_img(env);
 	set_checks(env);
 	set_default_value(env);

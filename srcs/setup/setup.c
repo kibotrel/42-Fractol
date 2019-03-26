@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 15:28:26 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/22 01:50:43 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/26 08:42:03 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,12 @@ static void	init_env(t_env *env, int fractal)
 	env->fractal = fractal;
 	set_checks(env);
 	set_base_color(env);
+	set_bounds(env);
 	env->julia_x = 0.0;
 	env->julia_y = 0.0;
 	env->child = 0;
 	env->toggle_julia = -1;
 	env->sound_name = "sounds/sound.wav";
-	env->y_max = 2;
-	env->y_min = -2;
-	env->x_max = 2;
-	env->x_min = -2;
 	env->zoom_count = 1;
 	color_preset(env);
 }
