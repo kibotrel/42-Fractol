@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 07:58:06 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/22 05:35:41 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/22 09:32:37 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void		fractal_list(void)
 	ft_putendl("\n\033[32;1musage: ./fractol fractal_name\033[0;36m");
 	ft_putendl("\n\tAvailable fractals:");
 	ft_putendl("\n\t- Mandelbrot\n\t- Julia\n\t- Burning Ship");
-	ft_putendl("\t- Burning Julia\n\t- Sierpinski\n\t- Koch");
+	ft_putendl("\t- Burning Julia\n\t- Sierpinski\n\t- Koch\n\t- Barnsley");
 	ft_putendl("\n\tUse \"./fractol menu\" to display the main menu window \033[0;31;1mNOT HANDLED YET\033[0;36m\n");
 }
 

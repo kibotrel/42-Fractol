@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 14:58:05 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/22 01:26:48 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/22 11:50:35 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,6 @@ void	get_fractal_name(void *mlx, void *win, t_env *env)
 		mlx_string_put(mlx, win, 1050, 65, WHITE, "Sierpinski");
 	else if (env->fractal == KOCH)
 		mlx_string_put(mlx, win, 1080, 65, WHITE, "Koch");
+	else if (env->fractal == BARNSLEY)
+		mlx_string_put(mlx, win, 1060, 65, WHITE, "Barnsley");
 }
