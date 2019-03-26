@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 22:15:45 by kibotrel          #+#    #+#              #
-#    Updated: 2019/03/22 01:51:55 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/03/26 08:45:06 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,11 +31,12 @@ SRC			= core/main.c				core/selector.c				\
 			  parsing/parsing.c										\
 																	\
 			  setup/setup.c				setup/color_preset.c		\
-			  setup/set_checks.c									\
+			  setup/set_checks.c		setup/set_bounds.c			\
 																	\
 			  fractals/mandelbrot.c		fractals/julia.c			\
 			  fractals/burning_ship.c	fractals/burning_julia.c	\
 			  fractals/sierpinski.c		fractals/koch.c				\
+			  fractals/barnsley.c									\
 																	\
 			  events/change_fractal.c 	events/change_sound.c		\
 			  events/update_colors.c	events/shift_palettes.c		\
