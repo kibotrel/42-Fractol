@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 18:28:43 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/22 01:48:24 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/26 14:14:08 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 static int	mouse_press(int button, int x, int y, t_env *env)
 {
-	if (button == SCROLL_UP && env->fractal != SIERPINSKI && env->fractal != KOCH)
+	if (button == SCROLL_UP && env->fractal != SIERPINSKI && env->fractal != KOCH && env->fractal != BARNSLEY)
 		zoom_mouse(ZOOM_IN, x, y, env);
-	else if (button == SCROLL_DOWN && env->fractal != SIERPINSKI && env->fractal != KOCH)
+	else if (button == SCROLL_DOWN && env->fractal != SIERPINSKI && env->fractal != KOCH && env->fractal != BARNSLEY)
 		zoom_mouse(ZOOM_OUT, x, y, env);
 	return (0);
 }
@@ -28,7 +28,7 @@ static int	mouse_press(int button, int x, int y, t_env *env)
 static int	mouse_move(int x, int y, t_env *env)
 {
 	if ((env->fractal == JULIA || env->fractal == BURNING_JULIA)
-	 	&& env->toggle_julia == 1)
+		&& env->toggle_julia == 1)
 	{
 		if (x >= 0 && x < 400 && y >= 0 && y <= 800)
 			env->julia_x = map(x, fill_data(0, 399, -1, 0));
@@ -47,7 +47,7 @@ static int	key_press(int key, t_env *env)
 {
 	if (key == ESC)
 		red_cross(env);
-	else if (key == M && env->fractal != SIERPINSKI && env->fractal != KOCH)
+	else if (key == M && env->fractal != SIERPINSKI && env->fractal != KOCH  && env->fractal != BARNSLEY)
 		color_mode(env);
 	else if (key == PG_UP || key == PG_DOWN)
 		details(env, key);
@@ -65,7 +65,7 @@ static int	key_press(int key, t_env *env)
 		env->toggle_julia *= -1;
 	else if (key == J || key == K || key == L)
 		change_sound(env, key);
-	else if (key == NUM_1 || key == NUM_2 || key == NUM_3 || key == NUM_4 || key == NUM_5 || key == NUM_6)
+	else if (key == NUM_1 || key == NUM_2 || key == NUM_3 || key == NUM_4 || key == NUM_5 || key == NUM_6 || key == NUM_7)
 		change_fractal(env, key);
 	else if (key == PLUS || key == MINUS)
 		keyboard_zoom(env, key);
