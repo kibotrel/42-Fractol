@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 19:14:37 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/21 22:55:54 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/26 08:45:44 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,12 @@ typedef struct	s_pos
 	int			x;
 }				t_pos;
 
+typedef struct	s_posd
+{
+	double		y;
+	double		x;
+}				t_posd;
+
 /*
 ** ./usage/usage.c
 */
@@ -143,10 +149,8 @@ t_env			*initialize(int fractal);
 **	./setup/color_preset.c
 */
 
-void			set1(t_env *env);
-void			set2(t_env *env);
-void			set3(t_env *env);
 void			color_preset(t_env *env);
+void			set_base_color(t_env *env);
 void			mandelbrot_julia_color(t_env *env);
 
 /*
@@ -154,6 +158,14 @@ void			mandelbrot_julia_color(t_env *env);
 */
 
 void			set_checks(t_env *env);
+
+/*
+**	./setup/set_boundss.c
+*/
+
+void			set_bounds(t_env *env);
+
+
 
 /*
 **	./fractals/mandelbrot.c
@@ -184,6 +196,18 @@ void			burning_julia(t_env *env);
 */
 
 void			sierpinski(t_env *env);
+
+/*
+**	./fractals/koch.c
+*/
+
+void			koch(t_env *env);
+
+/*
+**	./fractal/barnsley.c
+*/
+
+void			barnsley(t_env *env);
 
 /*
 **	./events/change_fractal.c
@@ -301,6 +325,9 @@ void			pixel_to_image(t_env *env, int x, int y, int color);
 */
 
 int				color(t_par data, t_env *env);
+void			set1(t_env *env);
+void			set2(t_env *env);
+void			set3(t_env *env);
 
 /*
 **	./utils/clean.c
