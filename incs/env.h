@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 19:14:34 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/21 23:11:33 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/26 14:07:44 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@
 **	Available fractals
 */
 
+# define KOCH			5
 # define JULIA			1
+# define BARNSLEY		6
 # define MANDELBROT		0
 # define SIERPINSKI		4
 # define BURNING_SHIP	2
@@ -59,6 +61,8 @@
 # define NUM_3			85
 # define NUM_4			86
 # define NUM_5			87
+# define NUM_6			88
+# define NUM_7			89
 # define MINUS			27
 # define TILDE			50
 # define PG_UP			116
@@ -70,14 +74,16 @@
 **	Useful Macros
 */
 
+# define OFF			0.0625
 # define LIM			8
 # define MAX			100
 # define AREA			-1
 # define SCALE			400
-# define OFFSET			0.0625
 # define PASTEL			1
 # define DEFAULT		0
 # define ZOOM_IN		1
+# define MIN_GEN		5000
+# define MAX_GEN		2500000
 # define GRADIENT		1
 # define ZOOM_MIN		1
 # define ZOOM_OUT		2
@@ -96,6 +102,7 @@
 
 # define RED			0x610000
 # define BLUE			0x000033
+# define GREEN			0x377D14
 # define WHITE			0xFFFFFF
 # define BROWN			0x180002
 # define BLACK			0x000000
