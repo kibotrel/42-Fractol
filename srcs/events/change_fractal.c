@@ -6,9 +6,11 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 10:07:57 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/22 02:01:05 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/26 08:15:37 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 #include "env.h"
 #include "fractol.h"
@@ -27,6 +29,8 @@ void	change_fractal(t_env *env, int key)
 		env->fractal = SIERPINSKI;
 	else if (key == NUM_6)
 		env->fractal = KOCH;
+	else if (key == NUM_7)
+		env->fractal = BARNSLEY;
 	env->cam->shift = DEFAULT;
 	color_preset(env);
 	reset(env);
