@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 14:10:59 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/18 14:12:48 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/26 17:44:04 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ void	fractal_controls(void *id, void *win)
 	mlx_string_put(id, win, 835, 640, WHITE, "Config Julia    : Tilde");
 	mlx_string_put(id, win, 1125, 640, WHITE, "Psycho mode     : P");
 	mlx_string_put(id, win, 835, 660, WHITE, "Change sound    : J/K/L");
-	mlx_string_put(id, win, 1125, 660, WHITE, "Select fractal  : 1/2/3/4");
+	mlx_string_put(id, win, 1125, 660, WHITE, "Select fractal  : 1/2/3");
+	mlx_string_put(id, win, 1125, 680, WHITE, "                  4/5/6");
+	mlx_string_put(id, win, 1125, 700, WHITE, "                  7/8/9");
 	mlx_string_put(id, win, 970, 720, WHITE, "Quit : Escape / Windowcross");
 	mlx_string_put(id, win, 1200, 765, WHITE, "Fractol by kibotrel");
 }
