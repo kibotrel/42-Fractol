@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 03:42:52 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/22 06:07:42 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/28 05:35:39 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,14 @@ static void	px_iterate(t_par *data, t_env *env)
 	data->cur_x = data->z_y + env->julia_x;
 }
 
-void		julia(t_env *env)
+void		julia(t_env *env, int thread)
 {
 	t_par	data;
+	int		limit;
 
-	data.y = -1;
-	while (++data.y < 800)
+	data.y = (thread == 0 ? 0 : thread * 25);
+	limit = 25 * (thread + 1);
+	while (++data.y <= limit)
 	{
 		data.x = -1;
 		while (++data.x < 800)

@@ -6,12 +6,14 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 19:14:37 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/26 08:45:44 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/28 06:46:33 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
+
+# include <pthread.h>
 
 typedef struct	s_img
 {
@@ -57,6 +59,7 @@ typedef struct	s_env
 	double		y_min;
 	double		julia_y;
 	double		julia_x;
+	pthread_t	threads[32];
 
 }				t_env;
 
@@ -125,13 +128,19 @@ void			usage(void);
 ** ./core/selector.c
 */
 
-void			draw_fractal(t_env *env, void *id, void *win, void *img);
+void			draw_fractal(t_env *env);
 
 /*
 **	./core/hooks.c
 */
 
 void			hooks(t_env *env);
+
+/*
+**	./core/threads.c
+*/
+
+void			threads(t_env *env, void *id, void *win, void *img);
 
 /*
 **	./parsing/parsing.c
@@ -171,25 +180,25 @@ void			set_bounds(t_env *env);
 **	./fractals/mandelbrot.c
 */
 
-void			mandelbrot(t_env *env);
+void			mandelbrot(t_env *env, int thread);
 
 /*
 **	./fractals/julia.c
 */
 
-void			julia(t_env *env);
+void			julia(t_env *env, int thread);
 
 /*
 **	./fractals/burning_ship.c
 */
 
-void			burning_ship(t_env *env);
+void			burning_ship(t_env *env, int thread);
 
 /*
 **	./fractals/burning_julia.c
 */
 
-void			burning_julia(t_env *env);
+void			burning_julia(t_env *env, int thread);
 
 /*
 **	./fractals/sierpinski.c
@@ -209,6 +218,11 @@ void			koch(t_env *env);
 
 void			barnsley(t_env *env);
 
+/*
+**	./fractal/flower.c
+*/
+
+void			flower(t_env *env);
 /*
 **	./events/change_fractal.c
 */

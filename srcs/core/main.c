@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 18:52:30 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/26 15:56:27 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/28 05:43:42 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int ac, char **av)
 		{
 			env = initialize(fractal);
 			hud_background(env);
-			draw_fractal(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
+			threads(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
 			hooks(env);
 			mlx_loop(env->mlx->id);
 		}

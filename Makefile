@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 22:15:45 by kibotrel          #+#    #+#              #
-#    Updated: 2019/03/26 08:45:06 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/03/28 01:06:42 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ INCDIR		= ./incs/ ./libft/incs/
 # Source files (Can be changed)
 
 SRC			= core/main.c				core/selector.c				\
-			  core/hooks.c											\
+			  core/hooks.c				core/threads.c				\
 																	\
 			  parsing/parsing.c										\
 																	\
@@ -36,7 +36,7 @@ SRC			= core/main.c				core/selector.c				\
 			  fractals/mandelbrot.c		fractals/julia.c			\
 			  fractals/burning_ship.c	fractals/burning_julia.c	\
 			  fractals/sierpinski.c		fractals/koch.c				\
-			  fractals/barnsley.c									\
+			  fractals/barnsley.c		fractals/flower.c			\
 																	\
 			  events/change_fractal.c 	events/change_sound.c		\
 			  events/update_colors.c	events/shift_palettes.c		\
