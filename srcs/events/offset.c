@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 11:14:45 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/26 16:14:00 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/28 01:35:31 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,15 @@ static void	spacial_offset(t_env *env, int key)
 
 void		offset(t_env *env, int key)
 {
-	if (env->fractal == SIERPINSKI || env->fractal == KOCH || env->fractal == BARNSLEY)
+	if (env->fractal >= SIERPINSKI)
 		new_img(env);
-	if (env->fractal == SIERPINSKI || env->fractal == KOCH)
+	if (env->fractal == SIERPINSKI
+		|| env->fractal == KOCH
+		|| env->fractal == FLOWER)
 		linear_offset(env, key, 0);
 	else if (env->fractal == BARNSLEY)
 		linear_offset(env, key, 1);
 	else
 		spacial_offset(env, key);
-	draw_fractal(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
+	threads(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
 }

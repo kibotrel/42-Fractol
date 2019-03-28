@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 09:15:09 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/26 08:11:52 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/26 17:53:12 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ void	set_checks(t_env *env)
 		env->checks = 25;
 	else if (env->fractal == BURNING_SHIP)
 		env->checks = 20;
-	else if (env->fractal == SIERPINSKI || env->fractal == KOCH)
+	else if (env->fractal == SIERPINSKI
+		|| env->fractal == KOCH
+		|| env->fractal == FLOWER)
 		env->checks = 0;
 	else if (env->fractal == BARNSLEY)
 		env->checks = 5000;

@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 11:57:29 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/26 09:13:32 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/28 01:35:56 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	set_default_value(t_env *env)
 
 void		reset(t_env *env)
 {
-	if (env->fractal == SIERPINSKI || env->fractal == KOCH || env->fractal == BARNSLEY)
+	if (env->fractal >= SIERPINSKI)
 		new_img(env);
 	set_checks(env);
 	set_default_value(env);
@@ -39,5 +39,5 @@ void		reset(t_env *env)
 		set3(env);
 	else
 		color_preset(env);
-	draw_fractal(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
+	threads(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
 }

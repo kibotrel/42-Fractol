@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 01:54:14 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/26 16:16:30 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/26 17:53:01 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ void	color_preset(t_env *env)
 
 void	set_base_color(t_env *env)
 {
-	if (env->fractal == SIERPINSKI || env->fractal == KOCH)
+	if (env->fractal == SIERPINSKI
+		|| env->fractal == KOCH
+		|| env->fractal == FLOWER)
 		env->base_color = WHITE;
 	else if (env->fractal == BARNSLEY)
 		env->base_color = GREEN;

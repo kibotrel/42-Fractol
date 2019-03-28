@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/16 05:15:31 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/22 02:11:23 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/28 01:22:28 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 static void	infos_area(t_env *env, void *id, void *win)
 {
-	if (env->fractal != SIERPINSKI && env->fractal != KOCH)
+	if (env->fractal < SIERPINSKI)
 	{
 		mlx_string_put(id, win, 955, 200, WHITE, "Color palette :");
 		if (env->cam->shift == DEFAULT)
@@ -33,7 +33,9 @@ static void	infos_area(t_env *env, void *id, void *win)
 static void	infos_gradient(t_env *env, void *id, void *win)
 {
 	mlx_string_put(id, win, 955, 200, WHITE, "Color shade   :");
-	if (env->base_color == BLACK || env->base_color == WHITE)
+	if (env->base_color == BLACK
+		|| env->base_color == WHITE
+		|| env->base_color == GREEN)
 		mlx_string_put(id, win, 1115, 200, WHITE, "Default");
 	if (env->base_color == BLUE)
 		mlx_string_put(id, win, 1115, 200, WHITE, "Blue");

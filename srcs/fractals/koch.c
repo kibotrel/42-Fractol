@@ -6,14 +6,14 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 01:20:06 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/26 16:15:47 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/26 16:36:33 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "fractol.h"
 
-void	depth(t_pos p[2], double a, t_env *env, int lvl)
+static void	depth(t_pos p[2], double a, t_env *env, int lvl)
 {
 	t_pos	t[3];
 
@@ -34,7 +34,7 @@ void	depth(t_pos p[2], double a, t_env *env, int lvl)
 	}
 }
 
-void	koch(t_env *env)
+void		koch(t_env *env)
 {
 	t_pos	p[3];
 	double	angle;
