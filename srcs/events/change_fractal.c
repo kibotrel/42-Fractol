@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 10:07:57 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/26 08:15:37 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/26 16:37:50 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	change_fractal(t_env *env, int key)
 		env->fractal = KOCH;
 	else if (key == NUM_7)
 		env->fractal = BARNSLEY;
+	else if (key == NUM_8)
+		env->fractal = FLOWER;
 	env->cam->shift = DEFAULT;
 	color_preset(env);
 	reset(env);

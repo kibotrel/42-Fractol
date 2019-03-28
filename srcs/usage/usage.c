@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 07:58:06 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/26 16:16:52 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/28 02:46:00 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void		fractal_list(void)
 {
 	ft_putendl("\n\033[32;1musage: ./fractol fractal_name\033[0;36m");
 	ft_putendl("\n\tAvailable fractals:");
-	ft_putendl("\n\t- Mandelbrot\n\t- Julia\n\t- Burning Ship");
+	ft_putendl("\n\t- Mandelbrot\n\t- Julia\n\t- Burning Ship\n\t- Flower");
 	ft_putendl("\t- Burning Julia\n\t- Sierpinski\n\t- Koch\n\t- Barnsley");
-	ft_putendl("\n\tUse \"./fractol menu\" to display the main menu window \033[0;31;1mNOT HANDLED YET\033[0;36m\n");
+	ft_putendl("\n\tUse \"./fractol menu\" to display the main menu window\n");
 }
 
 static void	error_handling(void)
@@ -27,6 +27,7 @@ static void	error_handling(void)
 	ft_putendl("\n\tEach following error code are handled by the program");
 	ft_putendl("\n\t- Invalid fractal (1)\n\t- Failed memory allocation (2)");
 	ft_putendl("\t- Failed to fork the process (3)");
+	ft_putendl("\t- Failed to create a thread (4)");
 	ft_putendl("\n\tUse \"echo $?\" to know the last process returned value");
 }
 
