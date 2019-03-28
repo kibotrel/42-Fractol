@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 01:06:30 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/28 06:52:18 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/28 12:24:00 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ void	threads(t_env *env, void *id, void *win, void *img)
 	else
 	{
 		while (++i < THREADS)
-			pthread_create(&env->threads[i], NULL, (void*)selector, env);
+			if (pthread_create(&env->threads[i], NULL, (void*)selector, env))
+				ft_print_error(ERR_THREAD_CREATE, 4);
 		i = -1;
 		while (++i < THREADS)
 			pthread_join(env->threads[i], NULL);
