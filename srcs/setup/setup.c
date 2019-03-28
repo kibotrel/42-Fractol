@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 15:28:26 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/28 05:43:48 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/28 12:57:00 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ static void	init_mlx(t_env *env)
 	t_mlx	*tmp;
 
 	if (!(tmp = (t_mlx*)malloc(sizeof(t_mlx))))
+	{
+		free_all(env, 1);
 		ft_print_error(ERR_MALLOC, 2);
+	}
 	tmp->id = mlx_init();
 	tmp->win = mlx_new_window(tmp->id, WIDTH, HEIGHT, TITLE);
 	env->mlx = tmp;
@@ -32,7 +35,10 @@ static void	init_img(t_env *env)
 	t_img	*tmp;
 
 	if (!(tmp = (t_img*)malloc(sizeof(t_img))))
+	{
+		free_all(env, 1);
 		ft_print_error(ERR_MALLOC, 2);
+	}
 	tmp->id = mlx_new_image(env->mlx->id, WIDTH, HEIGHT);
 	tmp->data = mlx_get_data_addr(tmp->id, &tmp->bpp, &tmp->size, &tmp->endian);
 	env->mlx->img = tmp;

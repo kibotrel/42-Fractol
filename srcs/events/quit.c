@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 12:17:07 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/18 12:18:56 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/28 09:43:07 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	red_cross(void *env)
 {
-	free_all(env);
+	free_all(env, 4);
 	exit(0);
 	return (0);
 }
