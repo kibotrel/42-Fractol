@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 12:01:32 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/26 16:14:30 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/28 01:35:43 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	psycho_effect(t_env *env)
 			shift_default(env);
 		else
 			shift_color(env);
-		draw_fractal(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
+		threads(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
 	}
 	else if (env->child == 0)
 		while (1)

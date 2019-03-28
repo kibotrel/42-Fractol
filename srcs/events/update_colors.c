@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 10:15:55 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/26 14:21:49 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/28 01:36:13 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	color_mode(t_env *env)
 {
 	env->cam->color *= -1;
-	draw_fractal(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
+	threads(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
 }
 
 void	colorset(t_env *env, int key)
@@ -27,7 +27,7 @@ void	colorset(t_env *env, int key)
 		set2(env);
 	else if (key == C)
 		set3(env);
-	draw_fractal(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
+	threads(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
 }
 
 void	base_color(t_env *env, int key)
@@ -42,7 +42,10 @@ void	base_color(t_env *env, int key)
 		else if (key == N)
 			env->base_color = RED;
 	}
-	else if (key == V && (env->fractal == SIERPINSKI || env->fractal == KOCH))
+	else if (key == V
+		&& (env->fractal == SIERPINSKI
+			|| env->fractal == KOCH
+			|| env->fractal == FLOWER))
 		env->base_color = WHITE;
 	else if (key == V)
 		env->base_color = BLACK;
@@ -50,5 +53,5 @@ void	base_color(t_env *env, int key)
 		env->base_color = BLUE;
 	else if (key == N)
 		env->base_color = RED;
-	draw_fractal(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
+	threads(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
 }

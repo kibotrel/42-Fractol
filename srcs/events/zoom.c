@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 12:12:22 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/26 16:15:22 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/28 01:36:28 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,15 @@ void	zoom_mouse(int direction, double x, double y, t_env *env)
 				env->cam->zoom = 1;
 		}
 		update_bounds(env);
-		draw_fractal(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
+		threads(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
 	}
 }
 
 void	keyboard_zoom(t_env *env, int key)
 {
-	if (env->fractal == SIERPINSKI || env->fractal == KOCH || env->fractal == BARNSLEY)
+	if (env->fractal >= SIERPINSKI)
 		new_img(env);
-	if (key == PLUS)
+	if (key == PLUS && env->cam->zoom < 50)
 	{
 		env->zoom_count++;
 		env->cam->zoom *= 1.1;
@@ -57,5 +57,5 @@ void	keyboard_zoom(t_env *env, int key)
 			env->cam->zoom = 1;
 	}
 	update_bounds(env);
-	draw_fractal(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
+	threads(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
 }
