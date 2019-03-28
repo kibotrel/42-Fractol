@@ -6,30 +6,21 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 14:09:57 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/22 09:22:38 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/28 06:48:48 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
 #include "env.h"
 #include "fractol.h"
 
-void	draw_fractal(t_env *env, void *id, void *win, void *img)
+void	draw_fractal(t_env *env)
 {
-	if (env->fractal == MANDELBROT)
-		mandelbrot(env);
-	else if (env->fractal == JULIA)
-		julia(env);
-	else if (env->fractal == BURNING_SHIP)
-		burning_ship(env);
-	else if (env->fractal == BURNING_JULIA)
-		burning_julia(env);
-	else if (env->fractal == SIERPINSKI)
+	if (env->fractal == SIERPINSKI)
 		sierpinski(env);
 	else if (env->fractal == KOCH)
 		koch(env);
 	else if (env->fractal == BARNSLEY)
 		barnsley(env);
-	mlx_put_image_to_window(id, win, img, 0, 0);
-	hud_infos(env);
+	else if (env->fractal == FLOWER)
+		flower(env);
 }
