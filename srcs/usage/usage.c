@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 07:58:06 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/28 02:46:00 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/28 07:15:44 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@ void		fractal_list(void)
 {
 	ft_putendl("\n\033[32;1musage: ./fractol fractal_name\033[0;36m");
 	ft_putendl("\n\tAvailable fractals:");
-	ft_putendl("\n\t- Mandelbrot\n\t- Julia\n\t- Burning Ship\n\t- Flower");
+	ft_putendl("\n\t- Mandelbrot\n\t- Julia\n\t- Burning Ship");
 	ft_putendl("\t- Burning Julia\n\t- Sierpinski\n\t- Koch\n\t- Barnsley");
+	ft_putendl("\t- Flower");
 	ft_putendl("\n\tUse \"./fractol menu\" to display the main menu window\n");
 }
 
@@ -41,7 +42,7 @@ static void	keyboard_controls(void)
 	ft_putendl("\t- Reset view point (R)\n\t- Configurate Julia (Tilde)");
 	ft_putendl("\t- Close the window and exit the program (ESC)");
 	ft_putendl("\t- Psychedelic mode (P)\n\t- Change Sound (J,K,L)");
-	ft_putendl("\t- Select fractal (1,2,3)");
+	ft_putendl("\t- Select fractal (1,2,3,4,5,6,7,8,9)");
 	ft_putendl("\t- Change details amount (Page_Up,Page_Down)");
 }
 
