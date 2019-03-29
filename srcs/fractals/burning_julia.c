@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/16 06:01:52 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/28 05:52:24 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/29 16:48:41 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void		burning_julia(t_env *env, int thread)
 	limit = 25 * (thread + 1);
 	while (++data.y <= limit)
 	{
-		data.x =  -1;
+		data.x = -1;
 		while (++data.x < 800)
 		{
 			px_setup(&data, env->cam->offset_y, env->cam->offset_x, env);
