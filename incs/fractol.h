@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 19:14:37 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/28 06:46:33 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/29 16:21:40 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -223,6 +223,7 @@ void			barnsley(t_env *env);
 */
 
 void			flower(t_env *env);
+
 /*
 **	./events/change_fractal.c
 */
@@ -347,7 +348,15 @@ void			set3(t_env *env);
 **	./utils/clean.c
 */
 
-void			free_all(t_env *env);
+void			free_all(t_env *env, int state);
+void			destroy_threads(t_env *env, int threads);
+
+/*
+**	./utils/strings.c
+*/
+
+int				char_count(char *str, char c);
+int				char_rcount(char *str, char c);
 
 /*
 **	./hud/hud.c
