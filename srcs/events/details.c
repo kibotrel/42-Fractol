@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 11:17:18 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/28 01:35:13 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/29 16:45:52 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,12 @@ static void	linear_precision(t_env *env, int key)
 
 static void	spacial_precision(t_env *env, int key)
 {
-	if (key == PG_UP && env->fractal == BARNSLEY && env->checks < MAX_GEN)
+	if (key == PG_UP
+		&& env->fractal == BARNSLEY
+		&& env->checks < MAX_GEN)
 		env->checks += 5000;
-	else if (key == PG_DOWN && env->fractal == BARNSLEY
+	else if (key == PG_DOWN
+		&& env->fractal == BARNSLEY
 		&& env->checks > MIN_GEN)
 	{
 		env->checks -= 5000;
