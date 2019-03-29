@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 22:15:45 by kibotrel          #+#    #+#              #
-#    Updated: 2019/03/28 01:06:42 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/03/29 17:05:55 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ SRC			= core/main.c				core/selector.c				\
 			  maths/functions.c										\
 																	\
 			  utils/draw_line.c			utils/image.c				\
-			  utils/color.c				utils/clean.c				\
+			  utils/color.c				utils/clean.c				\										\
 																	\
 			  hud/hud.c					hud/infos_colors.c			\
 			  hud/infos_controls.c		hud/infos_complex.c			\
