@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 09:01:34 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/28 01:21:49 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/29 16:46:08 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ void		hud_background(t_env *env)
 		while (++x <= WIDTH)
 		{
 			if (y < 50 || (y >= 400 && y < 450))
-				pixel_to_image(env, x, y, 0x23272A);
+				pixel_to_image(env, x, y, DARK_GRAY);
 			else
-				pixel_to_image(env, x, y, 0x2C2F33);
+				pixel_to_image(env, x, y, LIGHT_GRAY);
 		}
 	}
 }
@@ -83,8 +83,10 @@ static void	fractal_infos(void *id, void *win, t_env *env)
 	mlx_string_put(id, win, 955, 140, WHITE, i.off_x);
 	mlx_string_put(id, win, 955, 160, WHITE, i.off_y);
 	infos_color(env, env->mlx->id, env->mlx->win);
-	if (env->fractal != SIERPINSKI && env->fractal != KOCH
-		&& env->fractal != BARNSLEY && env->fractal != FLOWER)
+	if (env->fractal != SIERPINSKI
+		&& env->fractal != KOCH
+		&& env->fractal != BARNSLEY
+		&& env->fractal != FLOWER)
 		mlx_string_put(id, win, 955, 220, WHITE, i.sound);
 	infos_complex(env, env->mlx->id, env->mlx->win, i);
 }
