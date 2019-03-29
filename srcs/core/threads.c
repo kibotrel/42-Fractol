@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 01:06:30 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/28 12:24:00 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/29 16:49:45 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ static void	selector(t_env *env)
 	fractal[env->fractal](env, i);
 	pthread_exit(NULL);
 }
-void	threads(t_env *env, void *id, void *win, void *img)
+
+void		threads(t_env *env, void *id, void *win, void *img)
 {
 	int	i;
 
@@ -50,7 +51,7 @@ void	threads(t_env *env, void *id, void *win, void *img)
 		i = -1;
 		while (++i < THREADS)
 			pthread_join(env->threads[i], NULL);
- 		mlx_put_image_to_window(id, win, img, 0, 0);
+		mlx_put_image_to_window(id, win, img, 0, 0);
 		hud_infos(env);
 	}
 }
