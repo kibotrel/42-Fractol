@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 19:14:34 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/28 05:35:28 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/29 16:26:41 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,9 @@
 # define FOREST_2			0x447733
 # define FOREST_3			0x52A84D
 # define FOREST_4			0x6FBD54
+
+# define DARK_GRAY			0x23272A
+# define LIGHT_GRAY			0x2C2F33
 
 # define RED_ORANGE_0		0x4B291D
 # define RED_ORANGE_1		0x92391A
