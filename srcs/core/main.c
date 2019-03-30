@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 18:52:30 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/29 16:48:04 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/30 20:04:53 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,14 @@ int	main(int ac, char **av)
 		else
 		{
 			env = initialize(fractal);
-			hud_background(env);
-			threads(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
+			if (env->fractal != MENU)
+				fractal_to_window(env);
+			else
+				menu(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
 			hooks(env);
 			mlx_loop(env->mlx->id);
 		}
 	}
 	else
-		usage();
-	return (0);
+		return (0 * usage());
 }
