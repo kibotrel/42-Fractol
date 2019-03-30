@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 07:58:06 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/28 07:15:44 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/30 18:08:18 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ static void	error_handling(void)
 	ft_putendl("\n\t- Invalid fractal (1)\n\t- Failed memory allocation (2)");
 	ft_putendl("\t- Failed to fork the process (3)");
 	ft_putendl("\t- Failed to create a thread (4)");
+	ft_putendl("\t- Failed to play audio file (5)");
+	ft_putendl("\t- Audio file unavailable (6)");
 	ft_putendl("\n\tUse \"echo $?\" to know the last process returned value");
 }
 
@@ -55,10 +57,11 @@ static void	mouse_controls(void)
 	ft_putendl("\n\t\t\t\t\t\t\033[0m\033[32;1mMade by kibotrel\n\033[0m");
 }
 
-void		usage(void)
+int			usage(void)
 {
 	fractal_list();
 	error_handling();
 	keyboard_controls();
 	mouse_controls();
+	return (0);
 }
