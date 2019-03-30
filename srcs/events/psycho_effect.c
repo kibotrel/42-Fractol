@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 12:01:32 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/28 11:55:56 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/30 17:56:06 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,35 @@
 #include "env.h"
 #include "fractol.h"
 
-void	kill_process_id(void)
+
+static void	check_sound_availability(char *af, t_env *env)
+{
+	int		fd;
+	char	*line;
+	char	check[128];
+
+	sprintf(check, "find -f ./sounds | grep %s | wc -l | cut -c 8- > tst", af);
+	system(check);
+	fd = open("tst", O_RDONLY);
+	ft_get_next_line(fd, &line);
+	close(fd);
+	if (!line || ft_strcmp(line, "1") != 0)
+	{
+		free(line);
+		system("rm -f tst");
+		free_all(env, 4);
+		ft_print_error(ERR_SOUND, 6);
+	}
+	free(line);
+	system("rm -f test1");
+}
+void		kill_process_id(char *sound, t_env *env)
 {
 	int		fd;
 	char	*line;
 	char	command[32];
 
+	check_sound_availability(sound, env);
 	system("pidof afplay > test");
 	fd = open("test", O_RDONLY);
 	ft_get_next_line(fd, &line);
@@ -37,7 +60,7 @@ void	kill_process_id(void)
 	system("rm -f test");
 }
 
-void	psycho_effect(t_env *env)
+void		psycho_effect(t_env *env)
 {
 	char	command[64];
 
@@ -56,5 +79,6 @@ void	psycho_effect(t_env *env)
 	}
 	else if (env->child == 0)
 		while (1)
-			system(command);
+			if (system(command))
+				ft_print_error(ERR_AFPLAY, 5);
 }
