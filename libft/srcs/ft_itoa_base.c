@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 13:52:52 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/01/23 19:35:02 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/30 16:18:36 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		numlen(int value, int base)
 {
-	int 			size;
+	int		size;
 
 	size = 1;
 	if (value < 0)
@@ -29,10 +29,10 @@ int		numlen(int value, int base)
 
 char	*ft_itoa_base(int value, int base)
 {
-	int				size;
-	char			*result;
-	char			*ref_base;
-	long			nbr;
+	int		size;
+	char	*result;
+	char	*ref_base;
+	long	nbr;
 
 	nbr = value;
 	ref_base = "0123456789ABCDEF";
