@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 12:01:32 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/30 17:56:06 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/30 19:36:23 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	check_sound_availability(char *af, t_env *env)
 		ft_print_error(ERR_SOUND, 6);
 	}
 	free(line);
-	system("rm -f test1");
+	system("rm -f tst");
 }
 void		kill_process_id(char *sound, t_env *env)
 {
