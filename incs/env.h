@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 19:14:34 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/29 16:26:41 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/30 19:55:16 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,20 @@
 
 # define KOCH				5
 # define JULIA				1
-# define FLOWER				8
+# define FLOWER				7
 # define BARNSLEY			6
 # define MANDELBROT			0
 # define SIERPINSKI			4
 # define BURNING_SHIP		2
 # define BURNING_JULIA		3
+
+/*
+**	Menu windows
+*/
+
+# define MAIN				0
+# define SELECTION			1
+# define SETTINGS			2
 
 /*
 **	Used keycodes to communicate with mlx
@@ -70,6 +78,7 @@
 # define PG_UP				116
 # define PG_DOWN			121
 # define SCROLL_UP			4
+# define LEFT_CLICK			1
 # define SCROLL_DOWN		5
 
 /*
@@ -79,6 +88,7 @@
 # define OFF				0.0625
 # define LIM				8
 # define MAX				100
+# define MENU				10
 # define AREA				-1
 # define SCALE				400
 # define PASTEL				1
@@ -173,8 +183,10 @@
 */
 
 # define ERR_NAME			"\033[31;1mError:\033[0m Fractal unavailable."
-# define ERR_MALLOC			"\033[31;1mError :\033[0m Can't allocate memory."
 # define ERR_FORK			"\033[31;1mError :\033[0m Can't fork the process."
+# define ERR_SOUND			"\033[31;1mError :\033[0m Audio file unavailable."
+# define ERR_MALLOC			"\033[31;1mError :\033[0m Can't allocate memory."
+# define ERR_AFPLAY			"\033[31;1mError :\033[0m Can't play audio file."
 # define ERR_THREAD_CREATE	"\033[31;1mError :\033[0m Can't create a thread."
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 19:14:37 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/29 16:21:40 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/30 20:00:12 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,16 @@ typedef struct	s_cam
 	double		offset_x;
 }				t_cam;
 
+typedef struct	s_menu
+{
+	int			sound;
+	int			checks;
+	int			palette;
+	int			fractal;
+	int			colormode;
+	int			base_color;
+}				t_menu;
+
 typedef struct	s_env
 {
 	int			child;
@@ -48,11 +58,13 @@ typedef struct	s_env
 	int			base_color;
 	int			zoom_count;
 	int			palette[16];
+	int			menu_window;
 	int			toggle_julia;
 	int			current_level;
 	char		*sound_name;
 	t_mlx		*mlx;
 	t_cam		*cam;
+	t_menu		menu;
 	double		x_max;
 	double		x_min;
 	double		y_max;
@@ -116,25 +128,19 @@ typedef struct	s_posd
 	double		y;
 	double		x;
 }				t_posd;
-
 /*
 ** ./usage/usage.c
 */
 
+int				usage(void);
 void			fractal_list(void);
-void			usage(void);
 
 /*
 ** ./core/selector.c
 */
 
 void			draw_fractal(t_env *env);
-
-/*
-**	./core/hooks.c
-*/
-
-void			hooks(t_env *env);
+void			fractal_to_window(t_env *env);
 
 /*
 **	./core/threads.c
@@ -169,12 +175,16 @@ void			mandelbrot_julia_color(t_env *env);
 void			set_checks(t_env *env);
 
 /*
-**	./setup/set_boundss.c
+**	./setup/set_bounds.c
 */
 
 void			set_bounds(t_env *env);
 
+/*
+**	./setup/set_menu_params.c
+*/
 
+void			set_menu_params(t_env *env);
 
 /*
 **	./fractals/mandelbrot.c
@@ -273,7 +283,7 @@ void			reset(t_env *env);
 **	./events/psycho_effect.c
 */
 
-void			kill_process_id(void);
+void			kill_process_id(char *sound, t_env *env);
 void			psycho_effect(t_env *env);
 
 /*
@@ -394,5 +404,56 @@ void			infos_zoom(t_env *env, void *id, void *win, t_infos i);
 */
 
 void			get_fractal_name(void *mlx, void *win, t_env *env);
+
+/*
+**	./menu/menu.c
+*/
+
+void			menu(t_env *env, void *id, void *win, void *img);
+
+/*
+**	./menu/infos_menu.c
+*/
+
+void			main_menu_infos(void *id, void *win, int status);
+void			settings_menu_infos(void *id, void *win, int status);
+void			selection_menu_infos(void *id, void *win, int status);
+
+/*
+**	./menu/animations_menu.c
+*/
+
+void			main_menu_animations(int x, int y, void *id, void *win);
+void			settings_menu_animations(int x, int y, void *id, void *win);
+void			selection_menu_animations(int x, int y, void *id, void *win);
+
+/*
+**	./menu/interactions_menu.c
+*/
+
+void			main_menu_interactions(int x, int y, t_env *env);
+void			settings_menu_interactions(int x, int y, t_env *env);
+void			selection_menu_interactions(int x, int y, t_env *env);
+/*
+**	./hook/hooks.c
+*/
+
+void			hooks(t_env *env);
+
+/*
+**	./hook/fractal_hooks.c
+*/
+
+void			fractal_key_press(int key, t_env *env);
+void			fractal_mouse_move(int x, int y, t_env *env);
+void			fractal_mouse_press(int button, int x, int y, t_env *env);
+
+/*
+**	./hook/menu_hooks.c
+*/
+
+void			menu_key_press(int key, t_env *env);
+void			menu_mouse_move(int x, int y, t_env *env);
+void			menu_mouse_press(int button, int x, int y, t_env *env);
 
 #endif
