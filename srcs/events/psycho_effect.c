@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 12:01:32 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/30 19:36:23 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/04/01 16:20:25 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include "libft.h"
 #include "env.h"
 #include "fractol.h"
-
 
 static void	check_sound_availability(char *af, t_env *env)
 {
@@ -40,6 +39,7 @@ static void	check_sound_availability(char *af, t_env *env)
 	free(line);
 	system("rm -f tst");
 }
+
 void		kill_process_id(char *sound, t_env *env)
 {
 	int		fd;

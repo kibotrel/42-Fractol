@@ -6,11 +6,16 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 22:52:21 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/21 22:55:06 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/04/01 17:26:04 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	pow2(int x)
 {
 	return (x * x);
+}
+
+int	absolute(int x)
+{
+	return (x > 0 ? x : -x);
 }

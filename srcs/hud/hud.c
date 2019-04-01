@@ -6,14 +6,12 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 09:01:34 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/29 16:46:08 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/04/01 17:18:27 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <stdio.h>
 #include "mlx.h"
-#include "libft.h"
 #include "env.h"
 #include "fractol.h"
 

@@ -6,11 +6,10 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 09:32:00 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/19 15:22:23 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/04/01 17:19:45 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "env.h"
 #include "fractol.h"
 
 t_map	fill_data(double start, double end, double min, double max)

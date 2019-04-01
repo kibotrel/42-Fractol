@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 09:32:52 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/30 16:20:23 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/04/01 16:20:56 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void	next_point(t_posd *current, int r)
 	else if (r < 87)
 	{
 		next.x = 0.85 * current->x + 0.04 * current->y;
-		next.y = -0.04 * current->x + 0.85 * current->y + 1.6;;
+		next.y = -0.04 * current->x + 0.85 * current->y + 1.6;
 	}
 	else if (r < 94)
 	{

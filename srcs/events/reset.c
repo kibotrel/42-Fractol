@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 11:57:29 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/28 01:35:56 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/03/30 16:34:19 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static void	set_default_value(t_env *env)
 	env->cam->zoom = 1;
 	env->julia_x = 0;
 	env->julia_y = 0;
+	env->sound_name = "sounds/default.wav";
 }
 
 void		reset(t_env *env)

@@ -6,11 +6,10 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 18:28:43 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/30 18:24:31 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/04/01 17:16:18 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <signal.h>
 #include "mlx.h"
 #include "env.h"

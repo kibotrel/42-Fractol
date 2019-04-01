@@ -6,12 +6,10 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 14:18:30 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/28 05:43:21 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/04/01 17:13:47 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <pthread.h>
-#include <math.h>
 #include "env.h"
 #include "fractol.h"
 
