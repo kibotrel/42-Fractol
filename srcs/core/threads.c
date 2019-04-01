@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 01:06:30 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/04/01 17:09:58 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/04/01 17:41:10 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,10 @@ void		threads(t_env *env, void *id, void *win, void *img)
 	{
 		while (++i < THREADS)
 			if (pthread_create(&env->threads[i], NULL, (void*)selector, env))
+			{
+				mlx_destroy_window(env->mlx->id, env->mlx->win);
 				ft_print_error(ERR_THREAD_CREATE, 4);
+			}
 		i = -1;
 		while (++i < THREADS)
 			pthread_join(env->threads[i], NULL);
