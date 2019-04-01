@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 17:40:21 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/30 19:41:29 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/04/01 16:21:57 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,9 @@ static void	menu_infos(t_env *env)
 	if (env->menu_window == SELECTION)
 		selection_menu_infos(env->mlx->id, env->mlx->win, 0);
 	if (env->menu_window == SETTINGS)
-		settings_menu_infos(env->mlx->id, env->mlx->win, 0);
+		settings_menu_infos(env->mlx->id, env->mlx->win, 0, env->menu);
 }
+
 void		menu(t_env *env, void *id, void *win, void *img)
 {
 	menu_background(env);

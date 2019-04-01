@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 13:07:17 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/30 19:26:39 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/04/01 15:44:36 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,16 @@ void	selection_menu_animations(int x, int y, void *id, void *win)
 		selection_menu_infos(id, win, 1);
 }
 
-void	settings_menu_animations(int x, int y, void *id, void *win)
+void	settings_menu_animations(int x, int y, t_mlx *mlx, t_menu menu)
 {
 	if (y >= 735 && y <= 785 && x >= 1000 && x <= 1200)
-		mlx_string_put(id, win, 1100, 750, TRUE_RED, "Back");
+		mlx_string_put(mlx->id, mlx->win, 1100, 750, TRUE_RED, "Back");
+	else if (y >= 185 && y <= 235)
+		hover_details_settings(x, mlx, menu);
+	else if (y >= 285 && y <= 535)
+		hover_color_settings(x, y, mlx, menu);
+	else if (y >= 585 && y <= 635)
+		hover_sound_settings(x, mlx, menu);
 	else
-		settings_menu_infos(id, win, 1);
+		settings_menu_infos(mlx->id, mlx->win, 1, menu);
 }

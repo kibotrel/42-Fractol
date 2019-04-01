@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 15:06:40 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/30 19:11:00 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/04/01 15:54:03 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,21 @@ void	selection_menu_interactions(int x, int y, t_env *env)
 	else
 	{
 		if (y >= 140 && y <= 190 && x >= 600 && x <= 800)
-			env->fractal = MANDELBROT;
+			env->menu.fractal = MANDELBROT;
 		else if (y >= 215 && y <= 265 && x >= 600 && x <= 800)
-			env->fractal = JULIA;
+			env->menu.fractal = JULIA;
 		else if (y >= 290 && y <= 340 && x >= 600 && x <= 800)
-			env->fractal = BURNING_SHIP;
+			env->menu.fractal = BURNING_SHIP;
 		else if (y >= 365 && y <= 415 && x >= 600 && x <= 800)
-			env->fractal = BURNING_JULIA;
+			env->menu.fractal = BURNING_JULIA;
 		else if (y >= 440 && y <= 490 && x >= 600 && x <= 800)
-			env->fractal = SIERPINSKI;
+			env->menu.fractal = SIERPINSKI;
 		else if (y >= 515 && y <= 565 && x >= 600 && x <= 800)
-			env->fractal = KOCH;
+			env->menu.fractal = KOCH;
 		else if (y >= 590 && y <= 640 && x >= 600 && x <= 800)
-			env->fractal = BARNSLEY;
+			env->menu.fractal = BARNSLEY;
 		else if (y >= 665 && y <= 715 && x >= 600 && x <= 800)
-			env->fractal = FLOWER;
+			env->menu.fractal = FLOWER;
 	}
 }
 
@@ -65,4 +65,10 @@ void	settings_menu_interactions(int x, int y, t_env *env)
 		env->menu_window = MAIN;
 		menu(env, env->mlx->id, env->mlx->win, env->mlx->img->id);
 	}
+	else if (y >= 185 && y <= 235)
+		click_details_settings(x, env);
+	else if (y >= 285 && y <= 535)
+		click_color_settings(x, y, env);
+	else if (y >= 585 && y <= 635)
+		click_sound_settings(x, env);
 }

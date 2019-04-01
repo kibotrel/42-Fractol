@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 22:15:45 by kibotrel          #+#    #+#              #
-#    Updated: 2019/03/30 19:59:30 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/04/01 15:49:16 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,43 +25,45 @@ INCDIR		= ./incs/ ./libft/incs/
 
 # Source files (Can be changed)
 
-SRC			= core/main.c				core/selector.c				\
-			  core/threads.c										\
-																	\
-			  parsing/parsing.c										\
-																	\
-			  setup/setup.c				setup/color_preset.c		\
-			  setup/set_checks.c		setup/set_bounds.c			\
-			  setup/set_menu_params.c								\
-																	\
-			  fractals/mandelbrot.c		fractals/julia.c			\
-			  fractals/burning_ship.c	fractals/burning_julia.c	\
-			  fractals/sierpinski.c		fractals/koch.c				\
-			  fractals/barnsley.c		fractals/flower.c			\
-																	\
-			  events/change_fractal.c 	events/change_sound.c		\
-			  events/update_colors.c	events/shift_palettes.c		\
-			  events/offset.c			events/details.c			\
-			  events/reset.c			events/psycho_effect.c		\
-			  events/quit.c				events/zoom.c				\
-																	\
-			  maths/complex.c			maths/normalize.c			\
-			  maths/update_bounds.c		maths/ratio.c				\
-			  maths/functions.c										\
-																	\
-			  utils/draw_line.c			utils/image.c				\
-			  utils/color.c				utils/clean.c				\
-																	\
-			  hud/hud.c					hud/infos_colors.c			\
-			  hud/infos_controls.c		hud/infos_complex.c			\
-			  hud/infos_zoom.c			hud/fractal_name.c			\
-																	\
-			  menu/menu.c				menu/infos_menu.c			\
-			  menu/animations_menu.c	menu/interactions_menu.c	\
-																	\
-			  usage/usage.c											\
-																	\
-			  hooks/hooks.c				hooks/fractal_hooks.c		\
+SRC			= core/main.c					core/selector.c				\
+			  core/threads.c											\
+																		\
+			  parsing/parsing.c											\
+																		\
+			  setup/setup.c					setup/color_preset.c		\
+			  setup/set_checks.c			setup/set_bounds.c			\
+			  setup/set_menu_params.c		setup/set_fractal_params.c	\
+																		\
+			  fractals/mandelbrot.c			fractals/julia.c			\
+			  fractals/burning_ship.c		fractals/burning_julia.c	\
+			  fractals/sierpinski.c			fractals/koch.c				\
+			  fractals/barnsley.c			fractals/flower.c			\
+																		\
+			  events/change_fractal.c 		events/change_sound.c		\
+			  events/update_colors.c		events/shift_palettes.c		\
+			  events/offset.c				events/details.c			\
+			  events/reset.c				events/psycho_effect.c		\
+			  events/quit.c					events/zoom.c				\
+																		\
+			  maths/complex.c				maths/normalize.c			\
+			  maths/update_bounds.c			maths/ratio.c				\
+			  maths/functions.c											\
+																		\
+			  utils/draw_line.c				utils/image.c				\
+			  utils/color.c					utils/clean.c				\
+			  utils/selected_settings.c									\
+																		\
+			  hud/hud.c						hud/infos_colors.c			\
+			  hud/infos_controls.c			hud/infos_complex.c			\
+			  hud/infos_zoom.c				hud/fractal_name.c			\
+																		\
+			  menu/menu.c					menu/infos_menu.c			\
+			  menu/animations_menu.c		menu/interactions_menu.c	\
+			  menu/hover_settings.c			menu/click_settings.c		\
+																		\
+			  usage/usage.c												\
+																		\
+			  hooks/hooks.c					hooks/fractal_hooks.c		\
 			  hooks/menu_hooks.c
 
 LFT			= ./libft/libft.a

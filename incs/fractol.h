@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 19:14:37 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/03/30 20:00:12 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/04/01 17:26:59 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,6 +187,12 @@ void			set_bounds(t_env *env);
 void			set_menu_params(t_env *env);
 
 /*
+**	./setup/set_fractal_params.c
+*/
+
+void			set_fractal_params(t_env *env);
+
+/*
 **	./fractals/mandelbrot.c
 */
 
@@ -283,8 +289,8 @@ void			reset(t_env *env);
 **	./events/psycho_effect.c
 */
 
-void			kill_process_id(char *sound, t_env *env);
 void			psycho_effect(t_env *env);
+void			kill_process_id(char *sound, t_env *env);
 
 /*
 **	./events/zoom.c
@@ -331,6 +337,7 @@ double			ratio(int start, int end, int current);
 */
 
 int				pow2(int x);
+int				absolute(int x);
 
 /*
 **	./utils/draw_line.c
@@ -362,11 +369,10 @@ void			free_all(t_env *env, int state);
 void			destroy_threads(t_env *env, int threads);
 
 /*
-**	./utils/strings.c
+**	./utils/selected_settings.c
 */
 
-int				char_count(char *str, char c);
-int				char_rcount(char *str, char c);
+void			color_selected_settings(void *id, void *win, t_menu menu);
 
 /*
 **	./hud/hud.c
@@ -416,16 +422,16 @@ void			menu(t_env *env, void *id, void *win, void *img);
 */
 
 void			main_menu_infos(void *id, void *win, int status);
-void			settings_menu_infos(void *id, void *win, int status);
 void			selection_menu_infos(void *id, void *win, int status);
+void			settings_menu_infos(void *id, void *win, int status, t_menu m);
 
 /*
 **	./menu/animations_menu.c
 */
 
 void			main_menu_animations(int x, int y, void *id, void *win);
-void			settings_menu_animations(int x, int y, void *id, void *win);
 void			selection_menu_animations(int x, int y, void *id, void *win);
+void			settings_menu_animations(int x, int y, t_mlx *mlx, t_menu menu);
 
 /*
 **	./menu/interactions_menu.c
@@ -434,6 +440,21 @@ void			selection_menu_animations(int x, int y, void *id, void *win);
 void			main_menu_interactions(int x, int y, t_env *env);
 void			settings_menu_interactions(int x, int y, t_env *env);
 void			selection_menu_interactions(int x, int y, t_env *env);
+
+/*
+**	./menu/hover_settings.c
+*/
+
+void			hover_sound_settings(int x, t_mlx *mlx, t_menu menu);
+void			hover_details_settings(int x, t_mlx *mlx, t_menu menu);
+void			hover_color_settings(int x, int y, t_mlx *mlx, t_menu menu);
+
+/*
+**	./menu/click_settings.c
+*/
+void			click_sound_settings(int x, t_env *env);
+void			click_details_settings(int x, t_env *env);
+void			click_color_settings(int x, int y, t_env *env);
 /*
 **	./hook/hooks.c
 */
