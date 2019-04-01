@@ -91,5 +91,5 @@ $> echo $?
 ![barnsley](/screenshots/barnsley.png)
 ![flower](/screenshots/flower.png)
 ![menu_0](/screenshots/menu_0.png)
-![menu_1](/screenshots/menu_1.png)
+![menu_11](/screenshots/menu_1.png)
 ![menu_2](/screenshots/menu_2.png)
