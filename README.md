@@ -1,3 +1,4 @@
+![julia_0](/screenshots/julia_0.png)
 # 42-Fractol
 
 This project's goal is to make a fractal visualizer.
@@ -77,3 +78,18 @@ $> echo $?
 ```
 
 ## Screenshots
+![mandelbrot_0](/screenshots/mandelbrot_0.png)
+![mandelbrot_1](/screenshots/mandelbrot_1.png)
+![julia_1](/screenshots/julia_1.png)
+![julia_2](/screenshots/julia_2.png)
+![julia_3](/screenshots/julia_3.png)
+![burning_ship](/screenshots/burning_ship.png)
+![burning_julia_0](/screenshots/burning_julia_0.png)
+![burning_julia_1](/screenshots/burning_julia_1.png)
+![sierpinski](/screenshots/sierpinski.png)
+![koch](/screenshots/koch.png)
+![barnsley](/screenshots/barnsley.png)
+![flower](/screenshots/flower.png)
+![menu_0](/screenshots/menu_0.png)
+![menu_1](/screenshots/menu_1.png)
+![menu_2](/screenshots/menu_2.png)
