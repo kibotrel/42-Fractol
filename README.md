@@ -7,27 +7,19 @@ This project's goal is to make a fractal visualizer.
 Only works on **42-Paris Dumps** at the moment but should be portable on any **macOS X** in the near future.
 
 Simply type command bellow in your shell :
-```
-$> make
-```
+`$> make`
 
 ## Usage
 ### Run the program
 
 Once the program is compiled, run it with the following command line :
-```
-$> ./fractol 'Desired Fractal'
-```
+`$> ./fractol 'Desired Fractal'`
 
 To get more informations on how the program works and how you can interact with it type :
-```
-$> ./fractol
-```
+`$> ./fractol`
 
 To set everything up before running the visualizer with a graphic interface do :
-```
-$> fractol menu
-```
+`$> fractol menu`
 
 ### Fractal list
 
@@ -35,14 +27,14 @@ Every fractal bellow are handled by the program.
 
 Name | Type | Multithread
 --- | --- | ---
-Mandelbrot | Complex | Yes
-Julia | Complex | Yes
-Burning Ship | Complex | Yes
-Burning Julia | Complex | Yes
-Sierpinski triangle | Space filling curve | No
-Van Koch's snowfake | Auto-similar | No
-Barnsley's fern | Random generation | No
-Flower (Original) | Space filling and auto-similar | No
+Mandelbrot | Complex | :heavy_check_mark:
+Julia | Complex | :heavy_check_mark:
+Burning Ship | Complex | :heavy_check_mark:
+Burning Julia | Complex | :heavy_check_mark:
+Sierpinski triangle | Space filling curve | :heavy_multiplication_x:
+Van Koch's snowfake | Auto-similar | :heavy_multiplication_x:
+Barnsley's fern | Random generation | :heavy_multiplication_x:
+Flower (Original) | Space filling and auto-similar | :heavy_multiplication_x:
 
 ### Controls
 
@@ -74,8 +66,6 @@ Each following error is handled by the program leading to a complete memory free
 * Audio file unavailable (*ERROR-CODE 6*)
 
 Whenever one of these error occurs, the correct error message is displayed on the **standard output** and the whole program return an error code that you can retrieve by running :
-```
-$> echo $?
-```
+`$> echo $?`
 
 ## Screenshots
