@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 12:01:32 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/04/01 17:59:57 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/04/01 18:08:12 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include "mlx.h"
 #include "libft.h"
 #include "env.h"
 #include "fractol.h"
@@ -68,7 +69,10 @@ void		psycho_effect(t_env *env)
 	if (!env->child)
 		env->child = fork();
 	if (env->child == -1)
+	{
+		mlx_destroy_window(env->mlx->id, env->mlx->win);
 		ft_print_error(ERR_FORK, 3);
+	}
 	else if (env->child > 0)
 	{
 		if (!env->cam->shift)
