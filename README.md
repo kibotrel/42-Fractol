@@ -25,7 +25,7 @@ $> ./fractol
 ```
 To set everything up before running the visualizer with a graphic interface do :
 ```
-$> fractol menu
+$> ./fractol menu
 ```
 
 ### Fractal list
