@@ -9,7 +9,7 @@ Only works on **42-Paris Dumps** at the moment but should be portable on any **m
 
 Simply type command bellow in your shell :
 ```
-$> make
+$> brew install pidof && make
 ```
 
 ## Usage
