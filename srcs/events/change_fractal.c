@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 10:07:57 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/04/01 17:10:31 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/04/30 15:50:41 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	change_fractal(t_env *env, int key)
 	else if (key == NUM_8)
 		env->fractal = FLOWER;
 	env->cam->shift = DEFAULT;
+	if (env->fractal >= SIERPINSKI)
+		env->cam->color = 1;
 	color_preset(env);
 	reset(env);
 }
