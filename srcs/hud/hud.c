@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 09:01:34 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/04/01 17:18:27 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/07/11 17:08:13 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	fill_fields(t_infos *i, t_env *env)
 		|| env->fractal == FLOWER)
 		sprintf(i->checks, "Depth level   : %d", env->checks);
 	else if (env->fractal == BARNSLEY)
-		sprintf(i->checks, "Generations   : %d", env->checks);
+		sprintf(i->checks, "Population    : %d", env->checks);
 	else
 		sprintf(i->checks, "Iterations    : %d", env->checks);
 	if (env->zoom_count < ZOOM_MAX)
