@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 19:14:37 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/04/01 17:26:59 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/07/11 17:01:04 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ typedef struct	s_env
 	double		julia_y;
 	double		julia_x;
 	pthread_t	threads[32];
-
 }				t_env;
 
 typedef struct	s_map
