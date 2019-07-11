@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 22:15:45 by kibotrel          #+#    #+#              #
-#    Updated: 2019/04/01 15:49:16 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/07/11 13:24:23 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,8 @@ MLXDIR		= /usr/local/lib/
 INCDIR		= ./incs/ ./libft/incs/
 
 # Source files (Can be changed)
+
+INCS		= incs/env.h incs/fractol.h
 
 SRC			= core/main.c					core/selector.c				\
 			  core/threads.c											\
@@ -107,7 +109,7 @@ $(SUBDIRS):
 	@mkdir -p $(SUBDIRS)
 # Redefinition of implicit compilation rule to prompt some colors and file names during the said compilation
 
-$(OBJDIR)%.o: $(SRCDIR)%.c
+$(OBJDIR)%.o: $(SRCDIR)%.c $(INCS)
 	@echo "$(YELLOW)      - Compiling :$(RESET)" $<
 	@$(CC) $(CFLAGS) -c $< -o $@
 

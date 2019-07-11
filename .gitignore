@@ -1,6 +1,19 @@
+# Directories - Files
+objs
 *.o
-*.dSYM
-libft.a
+
+# Libraries - Headers
+*.a
+*.gch
+
+# Executables - Scripts
 fractol
 a.out
+.sh
+
+# Debug
+*.dSYM
+
+# Recovery - Settings
+*.swp
 .DS_Store
