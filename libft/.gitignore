@@ -1,7 +1,0 @@
-objs
-a.out
-*.dSYM
-.DS_Store
-*.a
-*.o
-*.sh
