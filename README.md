@@ -8,7 +8,7 @@ This project's goal is to make a fractal visualizer.
 Only works on **42-Paris Dumps** at the moment but should be portable on any **macOS X** in the near future.
 
 Simply type command bellow in your shell :
-```
+```shell
 $> brew install pidof && make
 ```
 
@@ -16,15 +16,15 @@ $> brew install pidof && make
 ### Run the program
 
 Once the program is compiled, run it with the following command line :
-```
+```shell
 $> ./fractol 'Desired Fractal'
 ```
 To get more informations on how the program works and how you can interact with it type :
-```
+```shell
 $> ./fractol
 ```
 To set everything up before running the visualizer with a graphic interface do :
-```
+```shell
 $> ./fractol menu
 ```
 
@@ -73,7 +73,7 @@ Each following error is handled by the program leading to a complete memory free
 * Audio file unavailable (*ERROR-CODE 6*)
 
 Whenever one of these error occurs, the correct error message is displayed on the **standard output** and the whole program return an error code that you can retrieve by running :
-```
+```shell
 $> echo $?
 ```
 
