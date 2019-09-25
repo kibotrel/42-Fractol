@@ -5,11 +5,11 @@ This project's goal is to make a fractal visualizer.
 
 ## Install
 
-Only works on **42-Paris Dumps** at the moment but should be portable on any **macOS X** in the near future.
+Only works on **42-Paris Dumps** at the moment but should be portable on any **macOS X** in the near future.This project countains several submodules you must initialize them beforehand :
 
-Simply type command bellow in your shell :
 ```shell
-$> brew install pidof && make
+$> git clone --recurse-submodules -j3 https://github.com/kibotrel/42-Fractol
+$> brew install pidof && cd 42-Fractol && make
 ```
 
 ## Usage
