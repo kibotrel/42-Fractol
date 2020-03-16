@@ -79,9 +79,7 @@ $> echo $?
 
 ## Screenshots
 ![mandelbrot_0](/screenshots/mandelbrot_0.png)
-![mandelbrot_1](/screenshots/mandelbrot_1.png)
 ![julia_1](/screenshots/julia_1.png)
-![julia_2](/screenshots/julia_2.png)
 ![julia_3](/screenshots/julia_3.png)
 ![burning_ship](/screenshots/burning_ship.png)
 ![burning_julia_0](/screenshots/burning_julia_0.png)
