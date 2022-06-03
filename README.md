@@ -5,7 +5,9 @@ This project's goal is to make a fractal visualizer.
 
 ## Install
 
-Only works on **42-Paris Dumps** at the moment but should be portable on any **macOS X** in the near future.This project countains several submodules you must initialize them beforehand :
+Only works on **42-Paris Dumps** at the moment but should be portable on any **macOS X**. This project countains several submodules you must initialize them beforehand :
+
+> :warning: As of June, 3rd 2022, this program does not work anymore due to a lot of deprecations and won't be updated as it's a simple school project.
 
 ```shell
 $> git clone --recurse-submodules -j3 https://github.com/kibotrel/42-Fractol
